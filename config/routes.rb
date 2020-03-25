@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'homes#index'
-  get 'homes/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
 end
