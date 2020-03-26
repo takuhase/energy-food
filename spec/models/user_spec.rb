@@ -13,5 +13,4 @@ RSpec.describe User, type: :model do
   it "is invalid with a duplicate email address"
   # ユーザーのフルネームを文字列として返すこと
   it "returns a user's full name as a string"
-
 end
