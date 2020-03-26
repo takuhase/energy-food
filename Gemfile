@@ -27,6 +27,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # RSpec for test automation
   gem 'rspec-rails', '~> 3.6.0'
+  # Rubocop for coding analysis
+  gem 'rubocop-airbnb'
 end
 
 group :development do
