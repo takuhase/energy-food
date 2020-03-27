@@ -1,7 +1,10 @@
 <h1>Homes#index</h1>
 <%= render 'shared/flash_messages' %>
 <% @users.each do |user| %>
-  <%= user.email %>
+  <div class="clearfix">
+    <%= user.name %>
+    <%= user.email %>
+  </div>
 <% end %>
 <% if user_signed_in? %>
   <h1>aaa</h1>
