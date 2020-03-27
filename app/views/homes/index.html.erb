@@ -6,6 +6,14 @@
     <%= user.email %>
   </div>
 <% end %>
+
+<% @orders.each do |order| %>
+  <div class="clearfix">
+    <%= order.delivery_date %>
+    <%= order.user_id %>
+  </div>
+<% end %>
+
 <% if user_signed_in? %>
   <h1>aaa</h1>
 <% else %>

@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
   def index
     @users = User.all
+    @orders = Order.all
   end
 
   def new_guest
