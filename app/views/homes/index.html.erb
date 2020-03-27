@@ -1,2 +1,14 @@
 <h1>Homes#index</h1>
 <%= render 'shared/flash_messages' %>
+<% @users.each do |user| %>
+  <%= user.email %>
+<% end %>
+<% if user_signed_in? %>
+  <h1>aaa</h1>
+<% else %>
+  <h1>bbb</h1>
+  <div>
+    <h3>Today's order</h3>
+    <%= render 'shared/order_list' %>
+  </div>
+<% end %>

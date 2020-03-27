@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   def index
+    @users = User.all
   end
 
   def new_guest
