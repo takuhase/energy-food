@@ -1,5 +1,5 @@
 20.times do |n|
-  name  = Faker::Name.name
+  name  = Faker::JapaneseMedia::DragonBall.character
   email = "example-#{n+1}@energyfood.com"
   password = "password"
   User.create!(name:  name,
