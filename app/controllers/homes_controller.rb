@@ -4,10 +4,12 @@ class HomesController < ApplicationController
     @orders = Order.all
     @food_categories = FoodCategory.all
     @foods = Food.all
+    @nutrients = Nutrient.all
   end
 
   def new_guest
     user = User.find_or_create_by!(email: 'guest@example.com') do |u|
+      u.name = 'Guest User'
       u.password = SecureRandom.urlsafe_base64
     end
     sign_in user
