@@ -17,9 +17,4 @@ RSpec.describe Order, type: :model do
     order = FactoryBot.build(:order, user_id: nil)
     expect(order).not_to be_valid
   end
-
-  it "is invalid without delivery_date" do
-    order = FactoryBot.build(:order, delivery_date: nil)
-    expect(order).not_to be_valid
-  end
 end
