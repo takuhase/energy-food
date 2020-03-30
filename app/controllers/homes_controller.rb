@@ -2,6 +2,8 @@ class HomesController < ApplicationController
   def index
     @users = User.all
     @orders = Order.all
+    @food_categories = FoodCategory.all
+    @foods = Food.all
   end
 
   def new_guest

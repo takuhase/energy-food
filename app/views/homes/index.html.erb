@@ -13,6 +13,20 @@
   </div>
 <% end %>
 
+<% @food_categories.each do |food_category| %>
+  <div class="clearfix">
+    <%= food_category.nutrient.alacarte_price %>
+  </div>
+<% end %>
+
+<% @foods.each do |food| %>
+  <div class="clearfix">
+    <%= food.chinese_name %>
+    <%= food.food_category.name %>
+    <%= food.food_category.nutrient.name %>
+  </div>
+<% end %>
+
 <% if user_signed_in? %>
   <h1>aaa</h1>
 <% else %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_174302) do
+ActiveRecord::Schema.define(version: 2020_03_30_190413) do
 
   create_table "food_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(version: 2020_03_30_174302) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["nutrient_id"], name: "index_food_categories_on_nutrient_id"
+  end
+
+  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "chinese_name"
+    t.string "english_name"
+    t.bigint "food_category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_category_id"], name: "index_foods_on_food_category_id"
   end
 
   create_table "nutrients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,5 +59,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_174302) do
   end
 
   add_foreign_key "food_categories", "nutrients"
+  add_foreign_key "foods", "food_categories"
   add_foreign_key "orders", "users"
 end
