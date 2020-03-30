@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_162127) do
+ActiveRecord::Schema.define(version: 2020_03_30_174302) do
+
+  create_table "food_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "nutrient_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nutrient_id"], name: "index_food_categories_on_nutrient_id"
+  end
 
   create_table "nutrients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -41,5 +49,6 @@ ActiveRecord::Schema.define(version: 2020_03_30_162127) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "food_categories", "nutrients"
   add_foreign_key "orders", "users"
 end
