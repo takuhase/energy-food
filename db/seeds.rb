@@ -28,10 +28,30 @@ end
   FoodCategory.create!( { name: name, nutrient_id: nutrient_id } )
 end
 
+
+
+
+
+
+
 # Master data for Food
 [
-  ['チキンチャーハン', 'Chicken Chaofan', 1],
-  ['チキンラーメン', 'Chicken ramen', 1]
+  ['蜜汁鸡丁', 'HK Honey Sesame Chicken Cubes', 1],
+  ['姜蓉蒸鸡', 'Ginger Steamed Chicken', 1],
+  ['炸盐酥鸡块', 'Pop Corn Fried Chicken', 1],
+  ['烟熏酱猪扒片', 'Hickory BBQ Sauce Pork Chop', 2],
+  ['什菇炒肉片', 'Assorted Mushroom StirFry Pork', 2],
+  ['东菜蒸肉碎', 'Steamed DongChoy MincedPork', 2],
+  ['泰式炸鱼饼', 'Thai Fish Cakes', 3],
+  ['日式豆腐', 'Claypot Style Egg Tofu', 4],
+  ['耗油蒸豆腐', 'Oyster Sauce Steamed Tofu', 4],
+  ['三宝炒蛋', '3-Treasure Scrambled Egg', 4],
+  ['蒸西兰花', 'Steamed Broccoli with Garlic Oil', 5],
+  ['枸杞苋菜', 'Baby Bayam with Goji Berries', 5],
+  ['亞參羊角豆', 'Assam Ladyfingers', 5],
+  ['苦瓜炒蛋', 'Bittergourd with Egg', 5],
+  ['咸蛋炸金瓜', 'Salted Egg Yolk Pumpkin', 5],
+  ['炸腐竹', 'Fried Crispy Fuchuk', 6]
 ].each do |chinese_name, english_name, food_category_id|
   Food.create!( { chinese_name: chinese_name, english_name: english_name, food_category_id: food_category_id } )
 end
