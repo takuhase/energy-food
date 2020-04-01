@@ -1,15 +1,11 @@
 FactoryBot.define do
-  factory :food_category do
-    id { 1 }
+  factory :chicken, class: "FoodCategory" do
     name { "Chicken" }
-    nutrient_id { 1 }
-    association :nutrient
+    association :nutrient, factory: :meat
   end
 
-  factory :other_food_category, class: "FoodCategory" do
-    id { 2 }
+  factory :pork, class: "FoodCategory" do
     name { "Pork" }
-    nutrient_id { 1 }
-    association :nutrient
+    association :nutrient, factory: :meat
   end
 end
