@@ -28,12 +28,6 @@ end
   FoodCategory.create!( { name: name, nutrient_id: nutrient_id } )
 end
 
-
-
-
-
-
-
 # Master data for Food
 [
   ['蜜汁鸡丁', 'HK Honey Sesame Chicken Cubes', 1],
@@ -51,7 +45,45 @@ end
   ['亞參羊角豆', 'Assam Ladyfingers', 5],
   ['苦瓜炒蛋', 'Bittergourd with Egg', 5],
   ['咸蛋炸金瓜', 'Salted Egg Yolk Pumpkin', 5],
-  ['炸腐竹', 'Fried Crispy Fuchuk', 6]
+  ['炸腐竹', 'Fried Crispy Fuchuk', 6],
+  ['褐色酱鸡丁', 'Brown Sauce Chicken Cubes', 1],
+  ['白兰式蒸鸡', 'Brand\'s Steamed Chicken', 1],
+  ['娘惹炸鸡', 'Inchi Kabin Fried Chicken', 1],
+  ['铁板烧肉片', 'Teppanyaki Pork', 2],
+  ['咖喱肉片', 'Creamy Curry Pork', 2],
+  ['香菇炒肉碎', 'Mushroom Minced Pork', 2],
+  ['柠檬鱼片', 'Lemon Fish Fillet', 3],
+  ['鲍鱼酱焖豆腐', 'Abalone Sauce Braised Soft Tofu', 4],
+  ['蒸水蛋', 'Steamed Silky Egg', 4],
+  ['菜补煎蛋', 'Dried Radish Omelette', 4],
+  ['什炒莲藕', 'Assorted Lotus Roots', 5],
+  ['清炒菜心', 'Stir Fry Choi Sam', 5],
+  ['包菜炒腐竹', 'StirFry Cabbage with Fuchuk', 5],
+  ['三巴长豆茄子', 'Sambal Longbean & Brinjal', 5],
+  ['树仔菜炒蛋', 'Money Chai with Egg', 5],
+  ['炸薯角', 'Potato Wedges', 6]
 ].each do |chinese_name, english_name, food_category_id|
   Food.create!( { chinese_name: chinese_name, english_name: english_name, food_category_id: food_category_id } )
+end
+
+# Master data for DailyFood
+[
+  ['2019-12-16', 1],
+  ['2019-12-16', 2],
+  ['2019-12-16', 3],
+  ['2019-12-16', 4],
+  ['2019-12-16', 5],
+  ['2019-12-16', 6],
+  ['2019-12-16', 7],
+  ['2019-12-16', 8],
+  ['2019-12-16', 9],
+  ['2019-12-16', 10],
+  ['2019-12-16', 11],
+  ['2019-12-16', 12],
+  ['2019-12-16', 13],
+  ['2019-12-16', 14],
+  ['2019-12-16', 15],
+  ['2019-12-16', 16]
+].each do |date, food_id|
+  DailyFood.create!( { date: date, food_id: food_id } )
 end
