@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_31_190145) do
+ActiveRecord::Schema.define(version: 2020_04_01_203617) do
 
   create_table "daily_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2020_03_31_190145) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "order_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "order_id"
+    t.bigint "daily_food_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["daily_food_id"], name: "index_order_details_on_daily_food_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+  end
+
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -70,5 +80,7 @@ ActiveRecord::Schema.define(version: 2020_03_31_190145) do
   add_foreign_key "daily_foods", "foods"
   add_foreign_key "food_categories", "nutrients"
   add_foreign_key "foods", "food_categories"
+  add_foreign_key "order_details", "daily_foods"
+  add_foreign_key "order_details", "orders"
   add_foreign_key "orders", "users"
 end
