@@ -83,7 +83,44 @@ end
   ['2019-12-16', 13],
   ['2019-12-16', 14],
   ['2019-12-16', 15],
-  ['2019-12-16', 16]
+  ['2019-12-16', 16],
+  ['2019-12-17', 17],
+  ['2019-12-17', 18],
+  ['2019-12-17', 19],
+  ['2019-12-17', 20],
+  ['2019-12-17', 21],
+  ['2019-12-17', 22],
+  ['2019-12-17', 23],
+  ['2019-12-17', 24],
+  ['2019-12-17', 25],
+  ['2019-12-17', 26],
+  ['2019-12-17', 27],
+  ['2019-12-17', 28],
+  ['2019-12-17', 29],
+  ['2019-12-17', 30],
+  ['2019-12-17', 31],
+  ['2019-12-17', 32],
 ].each do |date, food_id|
   DailyFood.create!( { date: date, food_id: food_id } )
+end
+
+# Master data for Order
+Order.create!(user_id: 1)
+Order.create!(user_id: 2)
+
+
+
+
+# Master data for OrderDetail
+order_1 = Order.first.id
+order_2 = Order.second.id
+[
+  [order_1, 1],
+  [order_1, 9],
+  [order_1, 14],
+  [order_2, 2],
+  [order_2, 9],
+  [order_2, 13]
+].each do |order_id, daily_food_id|
+  OrderDetail.create!( { order_id: order_id, daily_food_id: daily_food_id } )
 end

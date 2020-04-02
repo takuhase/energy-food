@@ -1,41 +1,11 @@
 <h1>Homes#index</h1>
 <%= render 'shared/flash_messages' %>
-<% @users.each do |user| %>
+<% @tomorrow_foods.zip(@tomorrow_menu_list) do |tomorrow_food, tomorrow_menu| %>
   <div class="clearfix">
-    <%= user.name %>
-    <%= user.email %>
-  </div>
-<% end %>
-
-<% @orders.each do |order| %>
-  <div class="clearfix">
-    <%= order.user_id %>
-  </div>
-<% end %>
-
-<% @foods.each do |food| %>
-  <div class="clearfix">
-    <%= food.chinese_name %>
-    <%= food.english_name %>
-  </div>
-  <div class="clearfix">
-    <%= food.food_category.name %>
-    <%= food.food_category.nutrient.name %>
-  </div>
-<% end %>
-
-<% @food_categories.each do |food_category| %>
-  <div class="clearfix">
-    <%= food_category.name %>
-  </div>
-<% end %>
-
-<% @nutrients.each do |nutrient| %>
-  <div class="clearfix">
-    <%= nutrient.id %>
-    <%= nutrient.name %>
-    <%= nutrient.addon_price %>
-    <%= nutrient.alacarte_price %>
+    <%= tomorrow_food.chinese_name %>
+    <%= tomorrow_food.english_name %>
+    <%= tomorrow_food.food_category_id %>
+    <%= tomorrow_menu.id%>
   </div>
 <% end %>
 

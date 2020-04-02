@@ -1,10 +1,13 @@
 class HomesController < ApplicationController
   def index
-    @users = User.all
-    @orders = Order.all
-    @food_categories = FoodCategory.all
-    @foods = Food.all
-    @nutrients = Nutrient.all
+    # メソッド化する
+    tomorrow = "2019-12-16"
+    @tomorrow_menu_list = DailyFood.where(date: tomorrow)
+    @tomorrow_foods = @tomorrow_menu_list.map do |tomorrow_menu|
+      tomorrow_menu.food
+    end
+    # @todays_foods = DailyFood.where(date: "2019-12-16")
+    # order_details = Order_details.where()
   end
 
   def new_guest
