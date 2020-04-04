@@ -49,7 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: energy_food_production
+  # database: energy_food_production
   adapter: postgresql
   encoding: unicode
   pool: 5
