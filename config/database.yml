@@ -50,5 +50,8 @@ test:
 production:
   <<: *default
   database: energy_food_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   username: energy_food
   password: <%= ENV['ENERGY_FOOD_DATABASE_PASSWORD'] %>
