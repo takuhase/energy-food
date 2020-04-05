@@ -53,5 +53,5 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: energy_food
-  password: <%= ENV['ENERGY_FOOD_DATABASE_PASSWORD'] %>
+  # username: energy_food
+  # password: <%= ENV['ENERGY_FOOD_DATABASE_PASSWORD'] %>
