@@ -61,7 +61,39 @@ end
   ['包菜炒腐竹', 'StirFry Cabbage with Fuchuk', 5],
   ['三巴长豆茄子', 'Sambal Longbean & Brinjal', 5],
   ['树仔菜炒蛋', 'Money Chai with Egg', 5],
-  ['炸薯角', 'Potato Wedges', 6]
+  ['炸薯角', 'Potato Wedges', 6],
+  ['金沙咸蛋鸡丁', 'Salted Egg Yolk Chicken Cubes', 1],
+  ['帝皇蒸鸡', 'Emperor’s Herb Steamed Chicken', 1],
+  ['泰式鸡片', 'Thai Style Tender Chicken Fillet', 1],
+  ['甘香肉片', 'Kam Heong Pork', 2],
+  ['蒙古肉片', 'Mongolian Stir Fry Pork', 2],
+  ['咸鱼蒸肉碎', 'Steamed Salted Fish MincedPork', 2],
+  ['香炸鱼片', 'Golden Fish Fillet', 3],
+  ['金瓜酱豆腐', 'Pure Pumpkin Sauce Egg Tofu', 4],
+  ['香炸白饭鱼蒸豆腐', 'Fried Silverfish Steamed Tofu', 4],
+  ['粉丝炒蛋', 'Glass Noodle Scrambled Egg', 4],
+  ['清炒菜旦', 'Garlic Choy Tam', 5],
+  ['马来风光', 'Belacan Kangkung', 5],
+  ['清炒羊角豆', 'Stir Fry Ladyfingers ', 5],
+  ['清炒季豆', 'Garlic Frenchbeans', 5],
+  ['焖马铃薯', 'Soybraised Potatoes', 5],
+  ['炸春卷', 'Fried Loh Bak', 6]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ].each do |chinese_name, english_name, food_category_id|
   Food.create!( { chinese_name: chinese_name, english_name: english_name, food_category_id: food_category_id } )
 end
@@ -100,6 +132,22 @@ end
   ['2019-12-17', 30],
   ['2019-12-17', 31],
   ['2019-12-17', 32],
+  ['2019-12-18', 33],
+  ['2019-12-18', 34],
+  ['2019-12-18', 35],
+  ['2019-12-18', 36],
+  ['2019-12-18', 37],
+  ['2019-12-18', 38],
+  ['2019-12-18', 39],
+  ['2019-12-18', 40],
+  ['2019-12-18', 41],
+  ['2019-12-18', 42],
+  ['2019-12-18', 43],
+  ['2019-12-18', 44],
+  ['2019-12-18', 45],
+  ['2019-12-18', 46],
+  ['2019-12-18', 47],
+  ['2019-12-18', 48]
 ].each do |date, food_id|
   DailyFood.create!( { date: date, food_id: food_id } )
 end
@@ -107,6 +155,8 @@ end
 # Master data for Order
 Order.create!(user_id: 1)
 Order.create!(user_id: 2)
+Order.create!(user_id: 1)
+Order.create!(user_id: 1)
 
 
 
@@ -114,13 +164,21 @@ Order.create!(user_id: 2)
 # Master data for OrderDetail
 order_1 = Order.first.id
 order_2 = Order.second.id
+order_3 = Order.third.id
+order_4 = Order.find(4).id
 [
   [order_1, 1],
   [order_1, 9],
   [order_1, 14],
   [order_2, 2],
   [order_2, 9],
-  [order_2, 13]
+  [order_2, 13],
+  [order_3, 19],
+  [order_3, 27],
+  [order_3, 30],
+  [order_4, 37],
+  [order_4, 43],
+  [order_4, 47]
 ].each do |order_id, daily_food_id|
   OrderDetail.create!( { order_id: order_id, daily_food_id: daily_food_id } )
 end
