@@ -1,0 +1,15 @@
+<%= render 'shared/tomorrow_menu' %>
+
+<h1>注文履歴</h1>
+<% @orders.zip(@daily_foods) do |order, daily_food| %>
+  <p>
+    <%= daily_food.first.date %>
+    <% daily_food.each do |f| %>
+      <p>
+        <%= f.food.chinese_name %>
+        <%= f.food.english_name %>
+      </p>
+    <% end %>
+  </p>
+  <br>
+<% end %>
