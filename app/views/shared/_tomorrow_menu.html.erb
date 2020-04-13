@@ -1,0 +1,34 @@
+<h1>明日のメニュー</h1>
+<div class="row" id="#">
+
+  <!-- <% @tomorrow_foods.zip(@tomorrow_menu_list) do |tomorrow_food, tomorrow_menu|  %>
+    <div class="col-sm-2 col-xs-12">
+      <h6><%= tomorrow_food.chinese_name %></h6>
+      <h6><%= tomorrow_food.english_name %></h6>
+      <h6><%= tomorrow_menu.id %></h6>
+    </div>
+  <% end %> -->
+
+
+
+  <% @tomorrow_foods.zip(@tomorrow_menu_list) do |tomorrow_food, tomorrow_menu|  %>
+    <div class="col-sm-2 col-xs-12">
+
+      <h6><%= tomorrow_food.chinese_name %></h6>
+      <h6><%= tomorrow_food.english_name %></h6>
+      <h6><%= tomorrow_menu.id %></h6>
+
+    </div>
+  <% end %>
+<%= form_tag do %>
+  <%= check_box_tag(:pet_dog) %>
+  <%= label_tag(:pet_dog, "I own a dog") %>
+<% end %>
+
+
+
+<!-- <%#= form_for @order |f| do %> -->
+  <!-- <%#= f.collection_check_boxes :daily_foods, DailyFood.all, :id, :name %> -->
+<!-- <%# end %> -->
+
+</div>

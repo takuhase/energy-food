@@ -1,20 +1,13 @@
-<h1>Homes#index</h1>
 <%= render 'shared/flash_messages' %>
-<% @tomorrow_foods.zip(@tomorrow_menu_list) do |tomorrow_food, tomorrow_menu| %>
-  <div class="clearfix">
-    <%= tomorrow_food.chinese_name %>
-    <%= tomorrow_food.english_name %>
-    <%= tomorrow_food.food_category_id %>
-    <%= tomorrow_menu.id%>
-  </div>
-<% end %>
-
+<%= render 'shared/tomorrow_menu' %>
 <% if user_signed_in? %>
   <h1>aaa</h1>
+  <li><%= link_to "Profile", current_user %></li>
 <% else %>
   <h1>bbb</h1>
   <div>
     <h3>Today's order</h3>
     <%= render 'shared/order_list' %>
   </div>
+  <h6>example-1@energyfood.com</h6>
 <% end %>

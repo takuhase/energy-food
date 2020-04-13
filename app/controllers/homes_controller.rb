@@ -1,13 +1,7 @@
 class HomesController < ApplicationController
+  include Common
   def index
-    # メソッド化する
-    tomorrow = "2019-12-16"
-    @tomorrow_menu_list = DailyFood.where(date: tomorrow)
-    @tomorrow_foods = @tomorrow_menu_list.map do |tomorrow_menu|
-      tomorrow_menu.food
-    end
-    # @todays_foods = DailyFood.where(date: "2019-12-16")
-    # order_details = Order_details.where()
+    @tomorrow_foods = show_tomorrow_menu_list
   end
 
   def new_guest
