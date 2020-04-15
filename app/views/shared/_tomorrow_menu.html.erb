@@ -9,21 +9,19 @@
     </div>
   <% end %> -->
 
+  <div class="col-sm-12 col-xs-12">
+    <%= form_tag(orders_path, method: :post) do %>
+      <% @tomorrow_menu_list.each_with_index do |menu, index| %>
+        <label>
+          <h6><%= menu.food.chinese_name %></h6>
+          <h6><%= menu.food.english_name %></h6>
+          <%= check_box_tag "daily_food_ids[]", "#{menu.id}" %>チェック
+        </label>
+      <% end %>
+      <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+    <% end %>
+  </div>
 
-
-  <% @tomorrow_foods.zip(@tomorrow_menu_list) do |tomorrow_food, tomorrow_menu|  %>
-    <div class="col-sm-2 col-xs-12">
-
-      <h6><%= tomorrow_food.chinese_name %></h6>
-      <h6><%= tomorrow_food.english_name %></h6>
-      <h6><%= tomorrow_menu.id %></h6>
-
-    </div>
-  <% end %>
-<%= form_tag do %>
-  <%= check_box_tag(:pet_dog) %>
-  <%= label_tag(:pet_dog, "I own a dog") %>
-<% end %>
 
 
 
