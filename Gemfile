@@ -24,6 +24,11 @@ gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
 # Gen dummy data
 gem 'faker'
+gem 'pry'
+gem 'pry-byebug'
+gem 'pry-doc'
+gem 'pry-rails'
+gem 'pry-stack_explorer'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

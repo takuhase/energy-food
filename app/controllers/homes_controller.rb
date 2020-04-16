@@ -2,6 +2,7 @@ class HomesController < ApplicationController
   include Common
   def index
     @tomorrow_foods = show_tomorrow_menu_list
+    @order = Order.new
   end
 
   def new_guest
