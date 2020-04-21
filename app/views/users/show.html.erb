@@ -1,9 +1,16 @@
 <%= render 'shared/tomorrow_menu' %>
 
 <h1>注文履歴</h1>
+
+
 <% @orders.zip(@daily_foods) do |order, daily_food| %>
+
+<%= form_tag(edit_order_path(current_user), method: :get) do %>
   <p>
-    <%= daily_food.first.date %>
+    <div>
+      注文日時<%= order.created_at %>
+    </div>
+    <%= daily_food.first.date %> 分のオーダー
     <% daily_food.each do |f| %>
       <p>
         <%= f.food.chinese_name %>
@@ -12,4 +19,9 @@
     <% end %>
   </p>
   <br>
+<% if Date.today < daily_food.first.date %>
+  <%= link_to 'Edit', edit_order_path(order) %>
+<% end %>
+
+<% end %>
 <% end %>
