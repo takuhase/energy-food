@@ -1,3 +1,8 @@
+#Guest User
+User.create!(name: 'Guest User',
+             email: 'guest@example.com',
+             password: SecureRandom.urlsafe_base64)
+
 20.times do |n|
   name  = Faker::JapaneseMedia::DragonBall.character
   email = "example-#{n+1}@energyfood.com"
@@ -77,79 +82,57 @@ end
   ['清炒羊角豆', 'Stir Fry Ladyfingers ', 5],
   ['清炒季豆', 'Garlic Frenchbeans', 5],
   ['焖马铃薯', 'Soybraised Potatoes', 5],
-  ['炸春卷', 'Fried Loh Bak', 6]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  ['炸春卷', 'Fried Loh Bak', 6],
+  ['日式照烧酱鸡丁', 'Japanese Teriyaki Chicken Cubes', 1],
+  ['芋头焖鸡', 'Yam Braised Chicken', 1],
+  ['南乳炸鸡', 'Nam Yu Fried Chicken', 1],
+  ['咕噜肉', 'Sweet & Sour Pork', 2],
+  ['五香炸肉', '5 Spice Fried Pork', 2],
+  ['泰式炒肉碎', 'Thai Basil Minced Pork', 2],
+  ['泰式鱼片', 'Thai Style Fish Fillet', 3],
+  ['肉碎蒸豆腐', 'Minced Meat Egg Tofu', 4],
+  ['麻婆豆腐', 'Mapo Tofu', 4],
+  ['长豆煎蛋', 'Longbean Omelette', 4],
+  ['咖喱什菜', 'Assorted Vegetable Curry', 5],
+  ['清炒油麦', 'Garlic Yau Mak', 5],
+  ['包菜丝炒培根', 'Shredded Cabbage with Bacon', 5],
+  ['苦瓜炒咸蛋', 'Bittergourd with Salted Egg', 5],
+  ['粉丝丝', 'Shredded Vege with Tanghoon', 5],
+  ['炸海鲜块', 'Fried Seafood Nuggets', 6],
+  ['家乡咖喱鸡', 'Creamy Curry Chicken Potatoes', 1],
+  ['士林鸡片', 'Shihlin Tender Chicken Fillet', 1],
+  ['焖肉骨茶', 'Bakuteh Style Braised Pork ', 2],
+  ['客家焖猪肉', 'Hakka Stewed Pork', 2],
+  ['家乡炒面', 'Ala Carte Fried Mee', 3],
+  ['卤豆干/蛋', 'SoyBraised Beancurd & Eggs', 4],
+  ['肉碎蒸全蛋', 'Steamed WholeEgg with Mincedpork', 4],
+  ['芙蓉蛋', 'Fu Yong Omelette', 4],
+  ['甜豆西兰花', 'Assorted Broccoli/Sweet Peas', 5],
+  ['蚝油小白菜', 'Oyster Sauce Siew Bak Choy', 5],
+  ['清炒奶白腐竹', 'Stirfry NaiPak with Fuchuk', 5],
+  ['三巴臭豆', 'Sambal Petai', 5],
+  ['焖佛手瓜', 'Braised Sweet Gourd', 5],
+  ['熏鸭片', 'Smoked Duck Slices', 6]
 ].each do |chinese_name, english_name, food_category_id|
   Food.create!( { chinese_name: chinese_name, english_name: english_name, food_category_id: food_category_id } )
 end
 
 # Master data for DailyFood
-[
-  ['2020-04-20', 1],
-  ['2020-04-20', 2],
-  ['2020-04-20', 3],
-  ['2020-04-20', 4],
-  ['2020-04-20', 5],
-  ['2020-04-20', 6],
-  ['2020-04-20', 7],
-  ['2020-04-20', 8],
-  ['2020-04-20', 9],
-  ['2020-04-20', 10],
-  ['2020-04-20', 11],
-  ['2020-04-20', 12],
-  ['2020-04-20', 13],
-  ['2020-04-20', 14],
-  ['2020-04-20', 15],
-  ['2020-04-20', 16],
-  ['2020-04-21', 17],
-  ['2020-04-21', 18],
-  ['2020-04-21', 19],
-  ['2020-04-21', 20],
-  ['2020-04-21', 21],
-  ['2020-04-21', 22],
-  ['2020-04-21', 23],
-  ['2020-04-21', 24],
-  ['2020-04-21', 25],
-  ['2020-04-21', 26],
-  ['2020-04-21', 27],
-  ['2020-04-21', 28],
-  ['2020-04-21', 29],
-  ['2020-04-21', 30],
-  ['2020-04-21', 31],
-  ['2020-04-21', 32],
-  ['2020-04-22', 33],
-  ['2020-04-22', 34],
-  ['2020-04-22', 35],
-  ['2020-04-22', 36],
-  ['2020-04-22', 37],
-  ['2020-04-22', 38],
-  ['2020-04-22', 39],
-  ['2020-04-22', 40],
-  ['2020-04-22', 41],
-  ['2020-04-22', 42],
-  ['2020-04-22', 43],
-  ['2020-04-22', 44],
-  ['2020-04-22', 45],
-  ['2020-04-22', 46],
-  ['2020-04-22', 47],
-  ['2020-04-22', 48]
-].each do |date, food_id|
-  DailyFood.create!( { date: date, food_id: food_id } )
+78.times do |n|
+  food_id = n+1
+  if food_id <= 16
+    date = '2020-04-21'
+  elsif food_id <= 32
+    date = '2020-04-22'
+  elsif food_id <= 48
+    date = '2020-04-23'
+  elsif food_id <= 64
+    date = '2020-04-24'
+  else
+    date = '2020-04-25'
+  end
+  DailyFood.create!(date: date,
+                    food_id: food_id)
 end
 
 # Master data for Order
@@ -157,9 +140,6 @@ Order.create!(user_id: 1)
 Order.create!(user_id: 2)
 Order.create!(user_id: 1)
 Order.create!(user_id: 1)
-
-
-
 
 # Master data for OrderDetail
 order_1 = Order.first.id

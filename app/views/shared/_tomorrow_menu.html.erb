@@ -2,7 +2,7 @@
 <div class="row" id="#">
   <div class="col-sm-12 col-xs-12">
     <%= form_tag(orders_path, method: :post) do %>
-      <% @tomorrow_menu_list.each_with_index do |menu, index| %>
+      <% @date_menu_list.each_with_index do |menu, index| %>
         <label>
           <h6><%= menu.food.chinese_name %></h6>
           <h6><%= menu.food.english_name %></h6>
