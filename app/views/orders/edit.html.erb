@@ -1,0 +1,16 @@
+<%#= form_tag(order_path, method: :patch) do %>
+<h6>チェックされた状態で出したい</h6>
+<div class="row" id="#">
+  <div class="col-sm-12 col-xs-12">
+    <%= form_tag(orders_path, method: :post) do %>
+      <% @daily_foods.each_with_index do |menu, index| %>
+        <label>
+          <h6><%= menu.food.chinese_name %></h6>
+          <h6><%= menu.food.english_name %></h6>
+          <%= check_box_tag "daily_food_ids[]", "#{menu.id}" %>チェック
+        </label>
+      <% end %>
+      <%= submit_tag "注文を変更", class: 'btn btn-info btn-block' %>
+    <% end %>
+  </div>
+</div>
