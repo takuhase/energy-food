@@ -18,7 +18,7 @@
     </p>
     <% if Date.today < daily_food.first.date %>
       <%= link_to 'Edit', edit_order_path(order) %>
-      <%= link_to "delete", order_path(order), method: :delete, data: { confirm: "本当にキャンセルしますか?" } %>
+      <%= link_to "delete", order_path(order), method: :delete, data: { confirm: "本当に取り消しますか?" } %>
     <% end %>
   <% end %>
 <% end %>

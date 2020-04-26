@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def return_order_details_from_order(orders)
     orders.map do |o|
       OrderDetail.where(order_id: o.id)
