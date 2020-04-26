@@ -10,4 +10,10 @@ FactoryBot.define do
     english_name { "Ginger Steamed Chicken" }
     association :food_category, factory: :chicken
   end
+
+  factory :vege_meal_1, class: "Food" do
+    chinese_name { "蒸西兰花" }
+    english_name { "Steamed Broccoli with Garlic Oil" }
+    association :food_category, factory: :vege
+  end
 end

@@ -8,4 +8,9 @@ FactoryBot.define do
     name { "Pork" }
     association :nutrient, factory: :meat
   end
+
+  factory :vege, class: "FoodCategory" do
+    name { "Vege" }
+    association :nutrient, factory: :vegetable
+  end
 end
