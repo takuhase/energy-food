@@ -3,7 +3,7 @@
   <div class="col-sm-12 col-xs-12">
     <%= form_tag(order_path, method: :patch) do %>
       <% @tomorrow_foods.each do |menu| %>
-        <label>
+        <label class="select-menu-<%= menu.id %>">
           <h6><%= menu.food.chinese_name %></h6>
           <h6><%= menu.food.english_name %></h6>
           <% checked = @food_arr.include?(menu.id)  %>
