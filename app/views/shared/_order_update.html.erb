@@ -1,15 +1,16 @@
-<h1>明日のメニュー</h1>
+<h1>メニューの変更</h1>
 <div class="row" id="#">
   <div class="col-sm-12 col-xs-12">
-      <%= form_tag(orders_path, method: :post) do %>
+    <%= form_tag(order_path, method: :patch) do %>
       <% @tomorrow_date_food_relations.each do |date_food_relation| %>
         <label class="select-menu-<%= date_food_relation.id %>">
           <h6><%= date_food_relation.food.chinese_name %></h6>
           <h6><%= date_food_relation.food.english_name %></h6>
-          <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}" %>チェック
+          <% checked = @food_arr.include?(date_food_relation.id)  %>
+          <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}", checked %>チェック
         </label>
       <% end %>
-      <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+      <%= submit_tag "注文を変更", class: 'btn btn-info btn-block' %>
     <% end %>
   </div>
 </div>
