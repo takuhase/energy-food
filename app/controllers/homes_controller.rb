@@ -1,8 +1,6 @@
 class HomesController < ApplicationController
-  include Common
   def index
-    tomorrow = Date.tomorrow
-    @tomorrow_foods = show_menu_list(tomorrow)
+    @tomorrow_date_food_relations = DailyFood.show_menu_list
     @order = Order.new
   end
 

@@ -9,8 +9,8 @@ RSpec.feature "Orders", type: :feature do
 
   scenario "Create, update and delete order successfully" do
     login_as test_user, scope: :user
-    visit user_path(test_user)
-    expect(current_path).to eq "/users/#{test_user.id}"
+    visit root_path
+    expect(current_path).to eq "/"
 
     # Create order
     expect do
@@ -25,16 +25,13 @@ RSpec.feature "Orders", type: :feature do
         expect(page).to have_content "蒸西兰花"
         check "daily_food_ids[]"
       end
-      within(".order-history") do
-        expect(page).to have_content "注文履歴"
-        expect(page).not_to have_content "蜜汁鸡丁"
-        expect(page).not_to have_content "蒸西兰花"
-        expect(page).not_to have_content "姜蓉蒸鸡"
-      end
       click_button "注文を送信"
     end.to change(Order, :count).by(1)
 
     # Update order
+    visit user_path(test_user)
+    expect(current_path).to eq "/users/#{test_user.id}"
+
     within(".order-history") do
       expect(page).not_to have_content "蜜汁鸡丁"
       expect(page).not_to have_content "姜蓉蒸鸡"

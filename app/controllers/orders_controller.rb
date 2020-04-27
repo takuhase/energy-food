@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
     @daily_foods = return_daily_foods_from_order_details(order_details)
 
     date = @daily_foods.first.date
-    @tomorrow_foods = show_menu_list(date)
+    @tomorrow_date_food_relations = DailyFood.show_menu_list(date)
     @food_arr = @daily_foods.map do |food|
       food.id
     end
