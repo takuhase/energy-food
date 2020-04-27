@@ -1,13 +1,3 @@
 <%= render 'shared/flash_messages' %>
 <%= render 'shared/tomorrow_menu' %>
-<% if user_signed_in? %>
-  <h1>aaa</h1>
-  <li><%= link_to "Profile", current_user %></li>
-<% else %>
-  <h1>bbb</h1>
-  <div>
-    <h3>Today's order</h3>
-    <%= render 'shared/order_list' %>
-  </div>
-  <h6>example-1@energyfood.com</h6>
-<% end %>
+<h6>example-1@energyfood.com</h6>
