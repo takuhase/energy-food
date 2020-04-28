@@ -4,13 +4,16 @@ class OrdersController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def create
-    @order = Order.new(user_id: current_user.id)
     ids = params[:daily_food_ids]
-
     return redirect_to root_path, alert: 'メニューを選択して下さい。' if ids.nil?
-    @order.save
-    ids.each do |id|
-      OrderDetail.create!(order_id: @order.id, daily_food_id: id.to_i)
+    @order = Order.new(user_id: current_user.id)
+    Order.transaction do
+      @order.save!
+      OrderDetail.transaction do
+        ids.each do |id|
+          OrderDetail.create!(order_id: @order.id, daily_food_id: id.to_i)
+        end
+      end
     end
     redirect_to request.referrer, notice: '注文を受け付けました。'
   end
@@ -30,12 +33,15 @@ class OrdersController < ApplicationController
   def update
     ids = params[:daily_food_ids]
     return redirect_to request.referrer, alert: 'メニューを選択して下さい。' if ids.nil?
-
     order = Order.find(params[:id])
-    order.order_details.destroy_all
 
-    ids.each do |id|
-      OrderDetail.create!(order_id: order.id, daily_food_id: id.to_i)
+    Order.transaction do
+      order.order_details.destroy_all
+      OrderDetail.transaction do
+        ids.each do |id|
+          OrderDetail.create!(order_id: order.id, daily_food_id: id.to_i)
+        end
+      end
     end
     redirect_to current_user, notice: '注文を変更しました。'
   end
