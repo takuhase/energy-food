@@ -121,15 +121,15 @@ end
 78.times do |n|
   food_id = n+1
   if food_id <= 16
-    date = '2020-04-25'
-  elsif food_id <= 32
-    date = '2020-04-26'
-  elsif food_id <= 48
-    date = '2020-04-27'
-  elsif food_id <= 64
     date = '2020-04-28'
-  else
+  elsif food_id <= 32
     date = '2020-04-29'
+  elsif food_id <= 48
+    date = '2020-04-30'
+  elsif food_id <= 64
+    date = '2020-05-01'
+  else
+    date = '2020-05-02'
   end
   DailyFood.create!(date: date,
                     food_id: food_id)
