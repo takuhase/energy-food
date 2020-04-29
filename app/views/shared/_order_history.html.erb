@@ -11,8 +11,10 @@
           <p>
             <%= f.food.chinese_name %>
             <%= f.food.english_name %>
+            ・・・RM<%= f.food.food_category.nutrient.alacarte_price %>
           </p>
         <% end %>
+        合計 RM
       </p>
       <% if Date.today < daily_food.first.date %>
         <%= link_to 'Edit', edit_order_path(order) %>
