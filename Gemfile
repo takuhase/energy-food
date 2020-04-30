@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '>= 1.4.6', require: false
 # login
 gem 'devise'
 # Japanese version
@@ -29,6 +29,11 @@ gem 'pry-byebug'
 gem 'pry-doc'
 gem 'pry-rails'
 gem 'pry-stack_explorer'
+# Admin page
+gem 'activeadmin'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

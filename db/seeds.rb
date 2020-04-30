@@ -162,3 +162,4 @@ order_4 = Order.find(4).id
 ].each do |order_id, daily_food_id|
   OrderDetail.create!( { order_id: order_id, daily_food_id: daily_food_id } )
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
