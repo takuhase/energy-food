@@ -6,9 +6,9 @@
         <h6>これは<%= category %>だ</h6>
         <% date_food_relations.each do |date_food_relation|%>
           <label class="select-menu-<%= date_food_relation.id %>">
-            <h6><%= date_food_relation.food.chinese_name %></h6>
-            <h6><%= date_food_relation.food.english_name %></h6>
-            <h6>RM<%= date_food_relation.food.food_category.nutrient.alacarte_price %></h6>
+            <h6><%= date_food_relation.chinese_name %></h6>
+            <h6><%= date_food_relation.english_name %></h6>
+            <h6>RM<%= date_food_relation.alacarte_price %></h6>
             <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}" %>チェック
           </label>
         <% end %>

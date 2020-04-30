@@ -4,4 +4,5 @@ class Food < ApplicationRecord
   validates :chinese_name, presence: true
   validates :english_name, presence: true
   validates :food_category_id, presence: true
+  delegate :alacarte_price, :to => :food_category
 end

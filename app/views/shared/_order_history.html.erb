@@ -1,22 +1,22 @@
 <div class="order-history">
   <h1>注文履歴</h1>
-  <% @orders.zip(@ordered_foods_history) do |order, daily_food| %>
+  <% @orders.zip(@ordered_foods_history) do |order, per_order| %>
     <div class="edit-delete-menu-<%= order.id %>">
       <p>
         <div>
           注文日時<%= order.created_at %>
         </div>
-        <%= daily_food.first.date %> 分のオーダー
-        <% daily_food.each do |f| %>
+        <%= per_order.first.date %> 分のオーダー
+        <% per_order.each do |date_food_relation| %>
           <p>
-            <%= f.food.chinese_name %>
-            <%= f.food.english_name %>
-            ・・・RM<%= f.food.food_category.nutrient.alacarte_price %>
+            <%= date_food_relation.chinese_name %>
+            <%= date_food_relation.english_name %>
+            ・・・RM<%= date_food_relation.alacarte_price %>
           </p>
         <% end %>
-        合計 RM
+        <!-- 合計 RM ?? -->
       </p>
-      <% if Date.today < daily_food.first.date %>
+      <% if Date.today < per_order.first.date %>
         <%= link_to 'Edit', edit_order_path(order) %>
         <%= link_to "Delete", order_path(order), method: :delete, data: { confirm: "本当に取り消しますか?" } %>
       <% end %>

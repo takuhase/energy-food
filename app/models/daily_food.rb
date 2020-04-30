@@ -4,6 +4,7 @@ class DailyFood < ApplicationRecord
   validates :food_id, presence: true
   validates :food, uniqueness: { scope: :date }
   validates :date, presence: true
+  delegate :chinese_name, :english_name, :alacarte_price, :to => :food
 
   scope :show_menu_list, ->(date = Date.tomorrow) do
     where(date: date)
