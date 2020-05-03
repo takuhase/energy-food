@@ -1,19 +1,27 @@
-<h1>明日のメニュー</h1>
-<div class="row" id="#">
-  <div class="col-sm-12 col-xs-12">
+<section class="py-5 bg-light">
+  <div class="container">
+    <h1>明日のメニュー</h1>
     <%= form_tag(orders_path, method: :post) do %>
       <% @categorized.each do |category, date_food_relations| %>
-        <h6>これは<%= category %>だ</h6>
-        <% date_food_relations.each do |date_food_relation|%>
-          <label class="select-menu-<%= date_food_relation.id %>">
-            <h6><%= date_food_relation.chinese_name %></h6>
-            <h6><%= date_food_relation.english_name %></h6>
-            <h6>RM<%= date_food_relation.alacarte_price %></h6>
-            <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}" %>チェック
-          </label>
-        <% end %>
+        <div class="food-category-<%= category %>">
+          <h3><%= category %></h3>
+          <div class="row">
+            <% date_food_relations.each do |date_food_relation|%>
+              <div class="mb-5 col-md-4 card text-center py-3">
+                <label class="select-menu-<%= date_food_relation.id %>">
+                  <h6><%= date_food_relation.chinese_name %></h6>
+                  <h6><%= date_food_relation.english_name %></h6>
+                  <h6>RM<%= date_food_relation.alacarte_price %></h6>
+                  <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}" %>
+                </label>
+              </div>
+            <% end %>
+          </div>
+        </div>
       <% end %>
-      <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+      <div class="submit-button">
+        <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+      </div>
     <% end %>
   </div>
-</div>
+</section>

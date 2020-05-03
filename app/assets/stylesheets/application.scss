@@ -1,5 +1,43 @@
 @import "bootstrap";
 
+// General
+body {
+  padding-top: 70px;
+}
+
+// Typography
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-weight: normal;
+  color: #777;
+  font-family: 'arial black';
+}
+
+// Partial
+// tomorrow_menu_list.html.erb, order_update.html.erb
+.submit-button {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+
+// order-history.html.erb
+.order-completed {
+  font-size: 2em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 // Login page
 .container-login {
   @extend .container-fluid;
