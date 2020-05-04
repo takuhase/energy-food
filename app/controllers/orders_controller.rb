@@ -3,6 +3,26 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit]
 
+  def show
+    @order = Order.find(params[:id])
+
+    order_details = OrderDetail.where(order_id: params[:id])
+    daily_foods = order_details.map do |details|
+      details.daily_food
+    end
+    @orders = daily_foods.map do |daily_food|
+      daily_food.food
+    end
+
+    respond_to do |format|
+      format.html do
+      end
+      format.csv do
+        send_data render_to_string, filename: "order-#{Time.now.to_date.to_s}.csv", type: :csv
+      end
+    end
+  end
+
   def create
     ids = params[:daily_food_ids]
     return redirect_to root_path, alert: 'メニューを選択して下さい。' if ids.nil?
@@ -43,6 +63,7 @@ class OrdersController < ApplicationController
           OrderDetail.create!(order_id: order.id, daily_food_id: id.to_i)
         end
       end
+      order.touch
     end
     redirect_to current_user, notice: '注文を変更しました。'
   end
