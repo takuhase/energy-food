@@ -27,6 +27,7 @@
                   <p class="order-completed">
                     注文が確定しました
                   </p>
+                  <%= link_to '明細ダウンロード', order_path(order.id, format: :csv) %>
                 <% end %>
               </div>
             </div>
