@@ -33,11 +33,13 @@ h3 {
 }
 
 // order-history.html.erb
-.order-completed {
-  font-size: 2em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
-  text-align: center;
+.order-head {
+  color: #FFF;
+  font-family: 'arial black';
+}
+
+.order-fixed {
+  color: #FFF;
 }
 
 // Login page
