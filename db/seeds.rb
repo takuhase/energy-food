@@ -26,9 +26,9 @@ end
   ['Chicken', 1],
   ['Pork', 1],
   ['Fish', 1],
-  ['Tofu / Egg', 2],
+  ['Tofu/Egg', 2],
   ['Vegetables', 2],
-  ['Special Items', 2]
+  ['SpecialItems', 2]
 ].each do |name, nutrient_id|
   FoodCategory.create!( { name: name, nutrient_id: nutrient_id } )
 end

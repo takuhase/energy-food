@@ -10,7 +10,6 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
-  text-align: center;
 }
 
 h3 {
@@ -20,6 +19,9 @@ h3 {
   font-weight: normal;
   color: #777;
   font-family: 'arial black';
+}
+.food-category > a {
+    display: block; padding-top: 70px; margin-top: -70px;
 }
 
 // Partial
@@ -47,9 +49,30 @@ h3 {
 
 // Flash messages
 .alert-notice {
-  @extend .alert-info;
+  @extend .alert-success;
 }
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+header.masthead {
+	min-height: 500px;
+	background: #f7f7f7 url(lp2.jpg) center top/cover no-repeat;
+  background-repeat: no-repeat;
+  background-image: image-url('lp_1.jpg');
+
+  .section-body {
+    position: absolute;
+    top: 250px;
+    left: 100px;
+    h1 {
+      letter-spacing: 1px;
+    }
+    p {
+      color: #FFF;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+    }
+  }
 }

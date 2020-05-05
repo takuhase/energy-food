@@ -11,18 +11,18 @@ module Common
       "Chicken" => [],
       "Pork" => [],
       "Fish" => [],
-      "Tofu / Egg" => [],
+      "Tofu/Egg" => [],
       "Vegetables" => [],
-      "special Items" => [],
+      "SpecialItems" => [],
     }
     specific_date_food_relations.each do |date_food_relation|
       master_categories = {
         1 => "Chicken",
         2 => "Pork",
         3 => "Fish",
-        4 => "Tofu / Egg",
+        4 => "Tofu/Egg",
         5 => "Vegetables",
-        6 => "special Items",
+        6 => "SpecialItems",
       }
       id = master_categories[date_food_relation.food.food_category_id]
       @categorized[id].push(date_food_relation)

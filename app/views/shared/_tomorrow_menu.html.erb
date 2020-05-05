@@ -1,10 +1,21 @@
+<h1>明日のメニュー</h1>
+<div class="container">
+  <div class="row">
+    <a class="col-sm-4 col-md-2" href="#Chicken">Chicken</a>
+    <a class="col-sm-4 col-md-2" href="#Pork">Pork</a>
+    <a class="col-sm-4 col-md-2" href="#Fish">Fish</a>
+    <a class="col-sm-4 col-md-2" href="#Tofu/Egg">Tofu/Egg</a>
+    <a class="col-sm-4 col-md-2" href="#Vegetables">Vegetables</a>
+    <a class="col-sm-4 col-md-2" href="#SpecialItems">Special Items</a>
+  </div>
+</div>
+
 <section class="py-5 bg-light">
   <div class="container">
-    <h1>明日のメニュー</h1>
     <%= form_tag(orders_path, method: :post) do %>
       <% @categorized.each do |category, date_food_relations| %>
         <div class="food-category-<%= category %>">
-          <h3><%= category %></h3>
+          <h3 class="food-category"><a id="<%= category %>" /><%= category %></h3>
           <div class="row">
             <% date_food_relations.each do |date_food_relation|%>
               <div class="mb-5 col-md-4 card text-center py-3">

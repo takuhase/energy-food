@@ -1,3 +1,7 @@
 <%= render 'shared/flash_messages' %>
-<%= render 'shared/tomorrow_menu' %>
+<% if user_signed_in? %>
+  <%= render 'shared/tomorrow_menu' %>
+<% else %>
+  <%= render 'shared/landing_page' %>
+<% end %>
 <h6>example-1@energyfood.com</h6>

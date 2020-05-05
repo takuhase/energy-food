@@ -9,7 +9,7 @@
               <div>
                 注文日時<%= l(order.updated_at, format: :long) %>
               </div>
-              <div class="card py-3">
+              <div class="card py-3 <%= "bg-secondary" unless Date.today < per_order.first.date %>">
                 <%= per_order.first.date %> 分のオーダー
                 <% per_order.each do |date_food_relation| %>
                   <p>
@@ -19,7 +19,6 @@
                   </p>
                 <% end %>
                 合計 RM<%= total_price(per_order) %>
-
                 <% if Date.today < per_order.first.date %>
                   <%= link_to 'Edit', edit_order_path(order) %>
                   <%= link_to "Delete", order_path(order), method: :delete, data: { confirm: "本当に取り消しますか?" } %>
