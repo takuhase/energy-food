@@ -8,11 +8,14 @@
     <div class="collapse navbar-collapse" id="Navber">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'ユーザーページ', current_user, class: 'nav-link' %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ユーザーメニュー
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to 'アカウント編集', edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to '注文履歴', current_user, class: 'dropdown-item' %>
+            </div>
           </li>
           <li class="nav-item">
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
@@ -25,7 +28,9 @@
             <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to 'ゲストログイン（閲覧用）', homes_guest_sign_in_path, method: :post, class: 'nav-link' %>
+            <strong>
+              <%= link_to 'ポートフォリオ閲覧用', homes_guest_sign_in_path, method: :post, class: 'nav-link strong' %>
+            </strong>
           </li>
         <% end %>
       </ul>

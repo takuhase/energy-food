@@ -1,6 +1,6 @@
 require 'csv'
 
-CSV.generate do |csv|
+export_file = CSV.generate do |csv|
   cols = {
     '日替料理ID'     => ->(u){ u.id },
     '中国名'  => ->(u){ u.chinese_name },
@@ -15,5 +15,10 @@ CSV.generate do |csv|
   @orders.each do |order|
     csv << cols.map{|k, col| col.call(order) }
   end
-
 end
+
+total_price = @orders.sum do |order|
+  order.alacarte_price
+end
+
+export_file << "合計,,, RM #{total_price}"
