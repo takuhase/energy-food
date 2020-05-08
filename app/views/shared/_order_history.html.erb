@@ -38,7 +38,12 @@
                       <h6 class="col-sm-1 offset-md-4">
                         RM<%= date_food_relation.alacarte_price %>
                       </h6>
-                      <i class="col-sm-1 fas fa-star"></i>
+
+                      <%#= render "likes/like", daily_food: date_food_relation %>
+                      <%= render 'shared/like', food: date_food_relation.food %>
+
+                      <!-- <i class="col-sm-1 fas fa-star"></i> -->
+
                     </div>
                   </li>
                 </ul>

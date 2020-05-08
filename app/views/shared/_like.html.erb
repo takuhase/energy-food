@@ -1,0 +1,24 @@
+<dev id="food-<%= food.id %>" data-food-id="<%= food.id %>">
+
+<span class="like">
+  <% if food.fav?(current_user) %>
+    <%= form_for(food.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+      <%#= button_tag(class: "btn btn-default btn-xs") do %>
+        <%#= content_tag :span, "#", class: "glyphicon glyphicon-heart" %>
+        <!-- <i class="col-sm-1 fas fa-star"></i> -->
+      <%# end %>
+      <%= button_tag "いいねなし", class: "btn btn-primary btn-xs" %>
+    <% end %>
+  <% else %>
+    <%= form_for(food.likes.build, remote: true) do |f| %>
+      <div><%= hidden_field_tag :food_id, food.id %></div>
+      <%#= button_tag(class: "btn btn-default btn-xs") do %>
+        <%#= content_tag :span, "#", class: "glyphicon glyphicon-heart-empty" %>
+        <!-- <i class="col-sm-1 fas fa-star"></i> -->
+      <%# end %>
+      <%= button_tag "いいねあり", class: "btn btn-warning btn-xs" %>
+    <% end %>
+  <% end %>
+</span>
+
+</dev>
