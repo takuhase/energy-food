@@ -5,7 +5,7 @@
         <h6 class="order-head">
           注文受付日時：<%= l(order.updated_at, format: :long) %>
         </h6>
-        <%= render 'shared/order_each_header_button', { order: order, per_order: per_order } %>
+        <%= render 'orders/shared/order_each_header_button', { order: order, per_order: per_order } %>
       </div>
     </a>
   </h5>

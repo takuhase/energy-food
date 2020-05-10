@@ -1,8 +1,0 @@
-<% orders.zip(ordered_foods_history) do |order, per_order| %>
-  <div class="edit-delete-menu-<%= order.id %>">
-    <div class="card my-3">
-      <%= render 'shared/order_each_header', { order: order, per_order: per_order } %>
-      <%= render 'shared/order_each_content', { order: order, per_order: per_order } %>
-    </div>
-  </div>
-<% end %>
