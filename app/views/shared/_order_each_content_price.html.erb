@@ -1,0 +1,10 @@
+<div class="card-footer <%= "bg-secondary order-fixed" unless Date.today < per_order.first.date %>">
+  <div class="row">
+    <h6 class="col-sm-3">
+      配送日：<%= per_order.first.date %>
+    </h6>
+    <h6 class="col-sm-1 offset-md-7">
+      合計 RM<%= total_price(per_order) %>
+    </h6>
+  </div>
+</div>

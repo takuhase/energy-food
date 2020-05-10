@@ -2,66 +2,7 @@
   <div class="container">
     <div class="order-history">
       <h1>注文履歴</h1>
-      <% @orders.zip(@ordered_foods_history) do |order, per_order| %>
-        <div class="edit-delete-menu-<%= order.id %>">
-          <div class="card my-3">
-            <div class="card-header bg-success" role="tab" id="collapseListGroupHeading-<%= order.id %>">
-              <h5 class="mb-0">
-                <a href="#collapseListGroup-<%= order.id %>" class="collapsed text-body d-block p-3 m-n3" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseListGroup-<%= order.id %>">
-                  <div class="row justify-content-between">
-                    <h6 class="order-head">
-                      注文受付日時：<%= l(order.updated_at, format: :long) %>
-                    </h6>
-                    <div class="order-head-button float-right">
-                      <% if Date.today < per_order.first.date %>
-                        <%= link_to 'Edit', edit_order_path(order), class: "btn btn-warning btn-sm" %>
-                        <%= link_to "Delete", order_path(order), method: :delete, data: { confirm: "本当に取り消しますか?" }, class: "btn btn-secondary btn-sm" %>
-                      <% else %>
-                        <%= link_to '明細CSV', order_path(order.id, format: :csv), class: "btn btn-light btn-sm" %>
-                      <% end %>
-                    </div>
-                  </div>
-                </a>
-              </h5>
-            </div>
-            <div class="collapse" role="tabpanel" id="collapseListGroup-<%= order.id %>" aria-labelledby="collapseListGroupHeading-<%= order.id %>" aria-expanded="false">
-              <% per_order.each do |date_food_relation| %>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item  <%= "bg-secondary order-fixed" unless Date.today < per_order.first.date %>">
-                    <div class="row">
-                      <h6 class="col-sm-3">
-                        <%= date_food_relation.chinese_name %>
-                      </h6>
-                      <h6 class="col-sm-3">
-                        <%= date_food_relation.english_name %>
-                      </h6>
-                      <h6 class="col-sm-1 offset-md-4">
-                        RM<%= date_food_relation.alacarte_price %>
-                      </h6>
-
-                      <%#= render "likes/like", daily_food: date_food_relation %>
-                      <%= render 'shared/like', food: date_food_relation.food %>
-
-                      <!-- <i class="col-sm-1 fas fa-star"></i> -->
-
-                    </div>
-                  </li>
-                </ul>
-              <% end %>
-              <div class="card-footer <%= "bg-secondary order-fixed" unless Date.today < per_order.first.date %>">
-                <div class="row">
-                  <h6 class="col-sm-3">
-                    配送日：<%= per_order.first.date %>
-                  </h6>
-                  <h6 class="col-sm-1 offset-md-7">
-                    合計 RM<%= total_price(per_order) %>
-                  </h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <%= render 'shared/order_collection', { orders: @orders, ordered_foods_history: @ordered_foods_history } %>
     </div>
   </div>
 </section>

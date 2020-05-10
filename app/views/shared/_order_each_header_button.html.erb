@@ -1,0 +1,8 @@
+<div class="order-head-button float-right">
+  <% if Date.today < per_order.first.date %>
+    <%= link_to 'Edit', edit_order_path(order), class: "btn btn-warning btn-sm" %>
+    <%= link_to "Delete", order_path(order), method: :delete, data: { confirm: "本当に取り消しますか?" }, class: "btn btn-secondary btn-sm" %>
+  <% else %>
+    <%= link_to '明細CSV', order_path(order.id, format: :csv), class: "btn btn-light btn-sm" %>
+  <% end %>
+</div>
