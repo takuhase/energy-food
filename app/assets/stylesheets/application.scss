@@ -51,6 +51,15 @@ h3 {
   padding: 2rem;
 }
 
+// _like.html.erb
+.star-white {
+  color: white
+}
+
+.star-orange {
+  color: #fecb81
+}
+
 // Flash messages
 .alert-notice {
   @extend .alert-success;
