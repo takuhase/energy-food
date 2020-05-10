@@ -7,7 +7,7 @@
         <%#= content_tag :span, "#", class: "glyphicon glyphicon-heart" %>
         <!-- <i class="col-sm-1 fas fa-star"></i> -->
       <%# end %>
-      <%= button_tag "いいねなし", class: "btn btn-primary btn-xs" %>
+      <%= button_tag "いいねあり", class: "btn btn-warning btn-xs" %>
     <% end %>
   <% else %>
     <%= form_for(food.likes.build, remote: true) do |f| %>
@@ -16,7 +16,7 @@
         <%#= content_tag :span, "#", class: "glyphicon glyphicon-heart-empty" %>
         <!-- <i class="col-sm-1 fas fa-star"></i> -->
       <%# end %>
-      <%= button_tag "いいねあり", class: "btn btn-warning btn-xs" %>
+      <%= button_tag "いいねなし", class: "btn btn-primary btn-xs" %>
     <% end %>
   <% end %>
 </span>

@@ -1,1 +1,2 @@
-$("#food-<%= @food.id %> .like").html("<%= escape_javascript(render 'shared/like', food: date_food_relation.food) %>");
+<%# binding.pry %>
+$("#food-<%= @food.id %>.like").html("<%= escape_javascript(render 'shared/like', food: @food) %>");
