@@ -5,6 +5,7 @@ class LikesController < ApplicationController
     @food = Food.find(params[:food_id])
     unless @food.fav?(current_user)
       @food.fav(current_user)
+      @food.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js
@@ -16,6 +17,7 @@ class LikesController < ApplicationController
     @food = Like.find(params[:id]).food
     if @food.fav?(current_user)
       @food.unfav(current_user)
+      @food.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js

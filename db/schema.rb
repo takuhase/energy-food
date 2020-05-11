@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_162200) do
+ActiveRecord::Schema.define(version: 2020_05_11_123131) do
 
   create_table "daily_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_05_07_162200) do
     t.bigint "food_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "likes_count", default: 0, null: false
     t.index ["food_category_id"], name: "index_foods_on_food_category_id"
   end
 

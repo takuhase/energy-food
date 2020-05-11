@@ -24,6 +24,9 @@
                   <h6><%= date_food_relation.english_name %></h6>
                   <h6>RM<%= date_food_relation.alacarte_price %></h6>
                   <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}" %>
+                  <% if date_food_relation.food.likes_count > 0 %>
+                    <%= content_tag :span, "#{date_food_relation.food.likes_count}", class: "col-sm-1 fas fa-star star-orange" %>
+                  <% end %>
                 </label>
               </div>
             <% end %>
