@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :like do
-    user_id { 1 }
-    food_id { 1 }
+  factory :fav_1, class: "Like" do
+    association :food, factory: :chicken_meal_1
+    association :user
   end
 end

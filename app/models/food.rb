@@ -1,7 +1,6 @@
 class Food < ApplicationRecord
   has_many :daily_foods
   has_many :likes, dependent: :destroy
-  # has_many :fav_users, through: :likes, source: :user
   has_many :fav_users, through: :likes, source: :user
   belongs_to :food_category
   validates :chinese_name, presence: true
