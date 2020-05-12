@@ -14,6 +14,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+.main-topic {
+  text-align: center;
+}
+
 h3 {
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -28,10 +32,74 @@ h3 {
 
 // Partial
 // tomorrow_menu_list.html.erb, order_update.html.erb
+#food-scroll > a {
+  color: black;
+}
+
 .submit-button {
   @extend .container-fluid;
   max-width: 576px;
   padding: 2rem;
+}
+
+// effect on checkbox
+label input[type="checkbox"] {
+    display: none;
+}
+
+label span {
+    display: inline-block;
+    position: relative;
+    padding: 15px 15px 15px 35px;
+    border-radius: 4px;
+    background-color: #eee;
+    cursor: pointer;
+    color: #515151;
+}
+
+label span::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: calc(50% - 10px);
+    left: 10px;
+    display: block;
+    background: #fff;
+    border-radius: 4px;
+}
+
+label span::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    left: 15px;
+    top: calc(50% - 8px);
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    transform: rotate(45deg);
+    display: block;
+    opacity: 0;
+}
+
+label span:hover {
+    background-color: #00FF00;
+    cursor: pointer;
+}
+label span:hover::before {
+}
+label span:hover::after {
+}
+
+label input[type="checkbox"]:checked + span {
+    background-color: #00FF00;
+}
+label input[type="checkbox"]:checked + span::before {
+    background-color: #ed6103;
+}
+label input[type="checkbox"]:checked + span::after {
+    opacity: 1;
 }
 
 // order-history.html.erb
