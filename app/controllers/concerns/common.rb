@@ -11,7 +11,7 @@ module Common
       "Chicken" => [],
       "Pork" => [],
       "Fish" => [],
-      "Tofu/Egg" => [],
+      "Tofu-Egg" => [],
       "Vegetables" => [],
       "SpecialItems" => [],
     }
@@ -20,7 +20,7 @@ module Common
         1 => "Chicken",
         2 => "Pork",
         3 => "Fish",
-        4 => "Tofu/Egg",
+        4 => "Tofu-Egg",
         5 => "Vegetables",
         6 => "SpecialItems",
       }
