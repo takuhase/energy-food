@@ -2,7 +2,7 @@ class HomesController < ApplicationController
   include Common
 
   def index
-    tomorrow_date_food_relations = DailyFood.show_menu_list
+    tomorrow_date_food_relations = DailyFood.show_menu_list(Date.tomorrow)
     categorize(tomorrow_date_food_relations)
     @order = Order.new
   end

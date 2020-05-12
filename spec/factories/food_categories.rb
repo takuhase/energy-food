@@ -10,7 +10,6 @@ FactoryBot.define do
         name: "Chicken"
       )
     end
-
   end
 
   factory :pork, class: "FoodCategory" do

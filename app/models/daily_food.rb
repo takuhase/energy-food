@@ -6,7 +6,7 @@ class DailyFood < ApplicationRecord
   validates :date, presence: true
   delegate :chinese_name, :english_name, :alacarte_price, :to => :food
 
-  scope :show_menu_list, ->(date = Date.tomorrow) do
+  scope :show_menu_list, ->(date) do
     where(date: date)
   end
 

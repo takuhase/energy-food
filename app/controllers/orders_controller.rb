@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
       format.html do
       end
       format.csv do
-        send_data render_to_string, filename: "order-#{Time.now.to_date.to_s}.csv", type: :csv
+        send_data render_to_string, filename: "order-#{Time.now.to_date}.csv", type: :csv
       end
     end
   end
@@ -48,7 +48,6 @@ class OrdersController < ApplicationController
     end
     specific_date_food_relations = DailyFood.show_menu_list(date)
     categorize(specific_date_food_relations)
-
   end
 
   def update
