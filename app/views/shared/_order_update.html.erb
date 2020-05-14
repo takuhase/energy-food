@@ -19,7 +19,7 @@
                       <% end %>
                     </h6>
                     <h6><%= date_food_relation.english_name %></h6>
-                    <h6>RM<%= date_food_relation.alacarte_price %></h6>
+                    <i class="alacarte_price"><%= date_food_relation.alacarte_price %></i>RM
                   </span>
                 </label>
               </div>
@@ -28,6 +28,9 @@
         </div>
       <% end %>
       <%= submit_tag "注文を変更", class: 'btn btn-info btn-block' %>
+      <div id="calculate-total-price">
+        0
+      <div>
     <% end %>
   </div>
 </section>

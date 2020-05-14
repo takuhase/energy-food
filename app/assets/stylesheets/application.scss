@@ -42,6 +42,18 @@ h3 {
   padding: 2rem;
 }
 
+.order-summary .submit-button {
+  @extend .container-fluid;
+  width: 576px;
+  padding: 2rem;
+}
+
+.order-summary {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
 // effect on checkbox
 label input[type="checkbox"] {
     display: none;

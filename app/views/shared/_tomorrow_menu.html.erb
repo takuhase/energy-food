@@ -27,8 +27,8 @@
                         <i class="fas fa-star star-orange"><%= date_food_relation.food.likes_count %></i>
                       <% end %>
                     </h6>
-                    <h6><%= date_food_relation.english_name %></h6>
-                    <h6>RM<%= date_food_relation.alacarte_price %></h6>
+                      <h6><%= date_food_relation.english_name %></h6>
+                      <i class="alacarte_price"><%= date_food_relation.alacarte_price %></i>RM
                   </span>
                 </label>
               </div>
@@ -36,8 +36,13 @@
           </div>
         </div>
       <% end %>
-      <div class="submit-button">
-        <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+      <div class="order-summary">
+        <div class="submit-button">
+          <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+        </div>
+        <div id="calculate-total-price">
+          0
+        <div>
       </div>
     <% end %>
   </div>
