@@ -27,10 +27,14 @@
           </div>
         </div>
       <% end %>
-      <%= submit_tag "注文を変更", class: 'btn btn-info btn-block' %>
-      <div id="calculate-total-price">
-        0
-      <div>
+      <div class="order-summary card text-center">
+        <div class="display-total-price">
+          <h2>合計<span class="mgr-10" id="calculate-total-price">0</span>RM</h2>
+        </div>
+        <div class="submit-button py-3">
+          <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+        </div>
+      </div>
     <% end %>
   </div>
 </section>

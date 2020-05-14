@@ -18,7 +18,7 @@ h1 {
   text-align: center;
 }
 
-h3 {
+h2, h3 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -44,8 +44,8 @@ h3 {
 
 .order-summary .submit-button {
   @extend .container-fluid;
-  width: 576px;
   padding: 2rem;
+  display: inline-block;
 }
 
 .order-summary {
@@ -54,6 +54,9 @@ h3 {
   right: 0;
 }
 
+.mgr-10 {
+  margin-right: 10px;
+}
 // effect on checkbox
 label input[type="checkbox"] {
     display: none;
