@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:show]
 
   def show
-    @orders = orders = User.get_all_orders(params[:id])
-    order_detail_list = OrderDetail.get_order_details(orders)
-    @ordered_foods_history = DailyFood.get_daily_foods(order_detail_list)
+    @orders = orders = Order.get_orders(params[:id])
+    @ordered_foods_history = orders.map do |order|
+      order.order_details.map do |detail|
+        detail.daily_food
+      end
+    end
   end
 end

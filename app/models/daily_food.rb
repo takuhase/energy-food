@@ -9,12 +9,4 @@ class DailyFood < ApplicationRecord
   scope :show_menu_list, ->(date) do
     where(date: date)
   end
-
-  scope :get_daily_foods, ->(order_detail_list) do
-    order_detail_list.map do |order_details|
-      order_details.map do |detail|
-        find(detail.daily_food_id)
-      end
-    end
-  end
 end
