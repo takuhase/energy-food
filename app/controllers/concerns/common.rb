@@ -15,7 +15,7 @@ module Common
       "Vegetables" => [],
       "SpecialItems" => [],
     }
-    specific_date_food_relations.includes([:food]).each do |date_food_relation|
+    specific_date_food_relations.includes(food: { food_category: [:nutrient] }).each do |relation|
       master_categories = {
         1 => "Chicken",
         2 => "Pork",
@@ -24,8 +24,8 @@ module Common
         5 => "Vegetables",
         6 => "SpecialItems",
       }
-      id = master_categories[date_food_relation.food.food_category_id]
-      @categorized[id].push(date_food_relation)
+      id = master_categories[relation.food.food_category_id]
+      @categorized[id].push(relation)
     end
   end
 end
