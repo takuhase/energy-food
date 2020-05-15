@@ -15,7 +15,7 @@ module Common
       "Vegetables" => [],
       "SpecialItems" => [],
     }
-    specific_date_food_relations.each do |date_food_relation|
+    specific_date_food_relations.includes([:food]).each do |date_food_relation|
       master_categories = {
         1 => "Chicken",
         2 => "Pork",

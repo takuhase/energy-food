@@ -54,6 +54,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  # Solution for N + 1 problem
+  gem 'bullet'
 end
 
 group :test do
