@@ -36,6 +36,13 @@ RSpec.feature "Orders", type: :feature do
       expect(page).not_to have_content "蜜汁鸡丁"
       expect(page).not_to have_content "姜蓉蒸鸡"
       expect(page).to have_content "蒸西兰花"
+      expect do
+        find('.button-like').click
+      end.to change(Like, :count).by(1)
+      expect do
+        find('.button-like').click
+      end.to change(Like, :count).by(-1)
+
       click_link "Edit"
     end
     within(".select-menu-#{daily_food_1.id}") do
