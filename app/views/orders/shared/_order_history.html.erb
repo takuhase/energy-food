@@ -3,6 +3,7 @@
     <div class="order-history">
       <h1 class="main-topic">注文履歴</h1>
       <%= render 'orders/shared/order_collection', { orders: @orders, ordered_foods_history: @ordered_foods_history } %>
+      <%= paginate @orders %>
     </div>
   </div>
 </section>
