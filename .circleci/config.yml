@@ -1,0 +1,59 @@
+version: 2.1
+
+jobs:
+  rubocop:
+    working_directory: ~/Desktop/energyFood
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - gemfiles-{{ .Branch }}-{{ checksum “Gemfile.lock” }}
+            - gemfiles-{{ .Branch }}-
+            - gemfiles-master-
+      - run: bundle config--local path vender/bundle
+      - run:
+          name: bundle install
+          command: bundle check || bundle install --jobs=8 --clean
+      - run:
+          name: run rubocop
+          command: bundle exec rubocop --parallel
+      - save_cache:
+          key: gemfiles-{{ .Branch }}-{{ checksum “Gemfile.lock” }}
+          paths:
+            - vender/bundle
+  rspec:
+    working_directory: ~/Desktop/energyFood
+    docker:
+      - image: circleci/ruby:2.5.1
+        steps:
+          - checkout
+          - setup_remote_docker
+          - run:
+              name: Setup environment variable
+              command: |
+                echo “export COMPOSE_FILE=docker-compose.ci.yml” >> $BASH_ENV
+          - run:
+              name: Start containers and verify it is working
+              command: |
+                set -x
+                docker-compose up -d
+                docker exec web curl -4 --retry 10 --retry-delay 3 --retry-connrefused http://localhost:3000
+          - run:
+              name: setup database
+              command: |
+                docker-compose run web bundle exec rails db:create db:migrate
+          - run:
+              name: run rspec
+              command: |
+                docker-compose exec web rspec
+orbs:
+  build-tools: circleci/build-tools@2.6.3
+  jq: circleci/jq@1.9.1
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - rubocop
+      - rspec
