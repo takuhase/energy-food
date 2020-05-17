@@ -121,27 +121,27 @@ end
 78.times do |n|
   food_id = n+1
   if food_id <= 16
-    date = '2020-05-13'
-  elsif food_id <= 32
-    date = '2020-05-14'
-  elsif food_id <= 48
-    date = '2020-05-15'
-  elsif food_id <= 64
-    date = '2020-05-16'
-  else
     date = '2020-05-17'
+  elsif food_id <= 32
+    date = '2020-05-18'
+  elsif food_id <= 48
+    date = '2020-05-19'
+  elsif food_id <= 64
+    date = '2020-05-20'
+  else
+    date = '2020-05-21'
   end
   DailyFood.create!(date: date,
                     food_id: food_id)
 end
 
-# Master data for Order
+# Transaction data for Order
 Order.create!(user_id: 1)
 Order.create!(user_id: 2)
 Order.create!(user_id: 1)
 Order.create!(user_id: 1)
 
-# Master data for OrderDetail
+# Transaction data for OrderDetail
 order_1 = Order.first.id
 order_2 = Order.second.id
 order_3 = Order.third.id
@@ -161,4 +161,12 @@ order_4 = Order.find(4).id
   [order_4, 47]
 ].each do |order_id, daily_food_id|
   OrderDetail.create!( { order_id: order_id, daily_food_id: daily_food_id } )
+end
+
+# Transaction data for Like
+20.times do |n|
+  user_id = n+1
+  food_id = (n+1)*3
+  Like.create!(user_id: user_id,
+               food_id: food_id)
 end
