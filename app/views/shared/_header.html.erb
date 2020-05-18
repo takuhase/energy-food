@@ -25,6 +25,9 @@
             <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
+            <%= link_to "店舗スタッフ", new_shop_clerk_session_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
             <strong>
               <%= link_to 'ポートフォリオ閲覧用', homes_guest_sign_in_path, method: :post, class: 'nav-link strong' %>
             </strong>
