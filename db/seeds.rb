@@ -13,6 +13,15 @@ User.create!(name: 'Guest User',
                password_confirmation: password)
 end
 
+#Shop Clerk
+2.times do |n|
+  email = "example-shop-clerk-#{n+1}@energyfood.com"
+  password = "password"
+  ShopClerk.create!(email: email,
+               password: password,
+               password_confirmation: password)
+end
+
 # Master data for Nutrient
 [
   ['Meat', 3, 5],
