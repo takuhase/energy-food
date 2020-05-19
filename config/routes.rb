@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
-  # devise_for :shop_clerks
+  namespace :shop_clerks do
+    # get 'homes/index'
+    root 'homes#index'
+  end
 
   devise_for :shop_clerks, controllers: {
-  sessions: 'shop_clerks/sessions',
-  passwords: 'shop_clerks/passwords',
-  registrations: 'shop_clerks/registrations'
+    sessions: 'shop_clerks/sessions',
+    passwords: 'shop_clerks/passwords',
+    registrations: 'shop_clerks/registrations',
   }
-
-
-
-
-  resources :likes, only: [:create, :destroy]
   devise_for :users
-
+  resources :likes, only: [:create, :destroy]
   resources :orders
   resources :users, only: [:show]
   root 'homes#index'

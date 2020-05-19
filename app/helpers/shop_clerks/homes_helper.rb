@@ -1,0 +1,2 @@
+module ShopClerks::HomesHelper
+end
