@@ -8,6 +8,10 @@ class Food < ApplicationRecord
   validates :food_category_id, presence: true
   delegate :alacarte_price, :to => :food_category
 
+  scope :descending_order, -> do
+    all.includes(food_category: :nutrient).order(created_at: "DESC")
+  end
+
   def fav(user)
     likes.create(user_id: user.id)
   end

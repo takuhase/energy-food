@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  resources :likes, only: [:create, :destroy]
+  namespace :shop_clerks do
+    # get 'homes/index'
+    root 'homes#index'
+    resources :foods
+  end
+
+  devise_for :shop_clerks, controllers: {
+    sessions: 'shop_clerks/sessions',
+    passwords: 'shop_clerks/passwords',
+    registrations: 'shop_clerks/registrations',
+  }
   devise_for :users
-  # resources :orders, only: [:create, :update]
+  resources :likes, only: [:create, :destroy]
   resources :orders
   resources :users, only: [:show]
   root 'homes#index'

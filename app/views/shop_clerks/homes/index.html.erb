@@ -1,0 +1,7 @@
+<%= render 'shared/flash_messages' %>
+<h1>Food list</h1>
+<% @foods.each do |food| %>
+  <%= food.chinese_name %>
+  <%= food.likes_count %>
+<% end %>
+<%= will_paginate @foods, previous_label: '&lt 前', next_label: '次 &gt' %>

@@ -146,6 +146,14 @@ label input[type="checkbox"]:checked + span::after {
   color: #fecb81
 }
 
+// Shop ShopClerks
+// foods/new.html.erb
+.container-food-add {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+
 // Flash messages
 .alert-notice {
   @extend .alert-success;

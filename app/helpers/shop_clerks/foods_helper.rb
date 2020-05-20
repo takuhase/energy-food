@@ -1,0 +1,2 @@
+module ShopClerks::FoodsHelper
+end

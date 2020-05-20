@@ -1,0 +1,12 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkShop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    料理管理
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkShop">
+    <%= link_to '料理一覧', shop_clerks_foods_path, class: 'dropdown-item' %>
+    <%= link_to '料理追加', new_shop_clerks_food_path, class: 'dropdown-item' %>
+  </div>
+</li>
+<li class="nav-item">
+  <%= link_to 'ログアウト', destroy_shop_clerk_session_path, method: :delete, class: 'nav-link' %>
+</li>
