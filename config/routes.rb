@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     # get 'homes/index'
     root 'homes#index'
     resources :foods
+    resources :daily_foods
   end
 
   devise_for :shop_clerks, controllers: {

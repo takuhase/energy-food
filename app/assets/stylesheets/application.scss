@@ -154,6 +154,13 @@ label input[type="checkbox"]:checked + span::after {
   padding: 2rem;
 }
 
+// Dailyfoods/new.html.erb
+.container-daily-food-add {
+  @extend .container-fluid;
+  max-width: 576px;
+  padding: 2rem;
+}
+
 // Flash messages
 .alert-notice {
   @extend .alert-success;
