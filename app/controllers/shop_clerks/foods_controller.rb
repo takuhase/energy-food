@@ -1,8 +1,7 @@
 class ShopClerks::FoodsController < ApplicationController
   PER = 10
   def index
-    # @foods = Food.all.order(likes_count: "DESC").paginate(page: params[:page], per_page: PER)
-    @foods = Food.all.includes(food_category: :nutrient).order(created_at: "DESC").paginate(page: params[:page], per_page: PER)
+    @foods = Food.descending_order.paginate(page: params[:page], per_page: PER)
   end
 
   def new
