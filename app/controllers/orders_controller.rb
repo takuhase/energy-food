@@ -7,12 +7,8 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     order_details = OrderDetail.where(order_id: params[:id])
-    daily_foods = order_details.map do |details|
-      details.daily_food
-    end
-    @orders = daily_foods.map do |daily_food|
-      daily_food.food
-    end
+    daily_foods = order_details.map { |details| details.daily_food }
+    @orders = daily_foods.map { |daily_food| daily_food.food }
 
     respond_to do |format|
       format.html do
@@ -30,9 +26,7 @@ class OrdersController < ApplicationController
     Order.transaction do
       @order.save!
       OrderDetail.transaction do
-        ids.each do |id|
-          OrderDetail.create!(order_id: @order.id, daily_food_id: id.to_i)
-        end
+        ids.each { |id| OrderDetail.create!(order_id: @order.id, daily_food_id: id.to_i) }
       end
     end
     redirect_to current_user, notice: '注文を受け付けました。'
@@ -43,9 +37,7 @@ class OrdersController < ApplicationController
     daily_foods = return_daily_foods(order_details)
     date = daily_foods.first.date
 
-    @food_arr = daily_foods.map do |food|
-      food.id
-    end
+    @food_arr = daily_foods.map { |food| food.id }
     specific_date_food_relations = DailyFood.show_menu_list(date)
     categorize(specific_date_food_relations)
   end
@@ -58,9 +50,7 @@ class OrdersController < ApplicationController
     Order.transaction do
       order.order_details.destroy_all
       OrderDetail.transaction do
-        ids.each do |id|
-          OrderDetail.create!(order_id: order.id, daily_food_id: id.to_i)
-        end
+        ids.each { |id| OrderDetail.create!(order_id: order.id, daily_food_id: id.to_i) }
       end
       order.touch
     end
@@ -81,8 +71,6 @@ class OrdersController < ApplicationController
   end
 
   def return_daily_foods(order_details)
-    order_details.map do |order_detail|
-      DailyFood.find(order_detail.daily_food_id)
-    end
+    order_details.map { |order_detail| DailyFood.find(order_detail.daily_food_id) }
   end
 end
