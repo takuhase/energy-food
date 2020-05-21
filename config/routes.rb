@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :shop_clerks do
-    # get 'homes/index'
     root 'homes#index'
     resources :foods
+    resources :daily_foods
   end
 
   devise_for :shop_clerks, controllers: {

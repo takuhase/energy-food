@@ -1,12 +1,23 @@
 <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkShop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkFood" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     料理管理
   </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkShop">
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkFood">
     <%= link_to '料理一覧', shop_clerks_foods_path, class: 'dropdown-item' %>
     <%= link_to '料理追加', new_shop_clerks_food_path, class: 'dropdown-item' %>
   </div>
 </li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkDailyFood" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    日替わりメニュー管理
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkDailyFood">
+    <%= link_to '日替わりメニュー 一覧', shop_clerks_daily_foods_path, class: 'dropdown-item' %>
+    <%= link_to '日替わりメニュー追加', new_shop_clerks_daily_food_path, class: 'dropdown-item' %>
+  </div>
+</li>
+
 <li class="nav-item">
   <%= link_to 'ログアウト', destroy_shop_clerk_session_path, method: :delete, class: 'nav-link' %>
 </li>

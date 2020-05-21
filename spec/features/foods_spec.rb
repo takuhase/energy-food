@@ -9,7 +9,7 @@ RSpec.feature "Foods", type: :feature do
     login_as shop_clerk, scope: :shop_clerk
   end
 
-  scenario "Show Food list as shop clerk" do
+  scenario "Show Food list by shop clerk" do
     visit shop_clerks_foods_path
     expect(current_path).to eq "/shop_clerks/foods"
     expect(page).to have_content "料理一覧"
@@ -20,7 +20,7 @@ RSpec.feature "Foods", type: :feature do
     expect(current_path).to eq "/shop_clerks/foods/new"
   end
 
-  scenario "Add Food as shop clerk" do
+  scenario "Add Food by shop clerk" do
     visit new_shop_clerks_food_path
     expect(current_path).to eq "/shop_clerks/foods/new"
     expect do
