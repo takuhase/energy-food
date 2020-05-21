@@ -1,6 +1,15 @@
 class ShopClerks::HomesController < ApplicationController
   PER = 10
   def index
-    @foods = Food.all.order(likes_count: "DESC").paginate(page: params[:page], per_page: PER)
+    daily_foods = DailyFood.show_menu_list("2020/05/22")
+    details_arr = daily_foods.map { |daily_food| OrderDetail.specific_date(daily_food) }
+    details_arr.flatten!
+    order_ids = details_arr.pluck(:order_id).uniq
+    @orders = order_ids.map { |order_id| Order.find(order_id) }
+
+    grouped_details = details_arr.group_by { |detail| detail.order_id }
+    @ordered_foods_history = grouped_details.map do |k, v|
+      v.map { |detail| DailyFood.find(detail.daily_food_id) }
+    end
   end
 end

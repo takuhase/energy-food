@@ -1,0 +1,17 @@
+<% per_order.each do |date_food_relation| %>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <div class="row">
+        <h6 class="col-sm-3">
+          <%= date_food_relation.chinese_name %>
+        </h6>
+        <h6 class="col-sm-3">
+          <%= date_food_relation.english_name %>
+        </h6>
+        <h6 class="col-sm-1 offset-md-4">
+          RM<%= date_food_relation.alacarte_price %>
+        </h6>
+      </div>
+    </li>
+  </ul>
+<% end %>

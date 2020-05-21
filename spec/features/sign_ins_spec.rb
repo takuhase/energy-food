@@ -23,6 +23,6 @@ RSpec.feature "SignIns", type: :feature do
     click_button "Log in"
     expect(page).to have_content "ログインしました。"
     expect(page).to have_current_path "/shop_clerks"
-    expect(page).to have_content "Food list"
+    expect(page).to have_content "本日の注文一覧"
   end
 end
