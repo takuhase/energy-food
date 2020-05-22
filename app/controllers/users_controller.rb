@@ -5,8 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @orders = orders = Order.get_orders(params[:id], params[:page])
-    @ordered_foods_history = orders.map do |order|
-      order.order_details.map { |detail| detail.daily_food }
-    end
+    @ordered_foods_history = orders.map { |order| order.daily_foods }
   end
 end

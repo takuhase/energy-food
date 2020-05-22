@@ -4,10 +4,8 @@ class OrdersController < ApplicationController
   before_action :correct_user, only: [:edit]
 
   def show
-    @order = Order.find(params[:id])
-
-    order_details = OrderDetail.where(order_id: params[:id])
-    daily_foods = order_details.map { |details| details.daily_food }
+    # @order = Order.find(params[:id])
+    daily_foods = Order.get_daily_foods(params[:id])
     @orders = daily_foods.map { |daily_food| daily_food.food }
 
     respond_to do |format|
@@ -33,8 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    order_details = OrderDetail.where(order_id: params[:id])
-    daily_foods = return_daily_foods(order_details)
+    daily_foods = Order.get_daily_foods(params[:id])
     date = daily_foods.first.date
 
     @food_arr = daily_foods.map { |food| food.id }
@@ -68,9 +65,5 @@ class OrdersController < ApplicationController
   def correct_user
     @user = Order.find(params[:id]).user
     redirect_to(root_url, alert: '他ユーザーの情報は閲覧できません') unless current_user == @user
-  end
-
-  def return_daily_foods(order_details)
-    order_details.map { |order_detail| DailyFood.find(order_detail.daily_food_id) }
   end
 end
