@@ -1,7 +1,9 @@
 class ShopClerks::HomesController < ApplicationController
+  before_action :authenticate_shop_clerk!
   PER = 10
+
   def index
-    daily_foods = DailyFood.show_menu_list("2020/05/22")
+    daily_foods = DailyFood.show_menu_list(Date.tomorrow)
     details_arr = daily_foods.map { |daily_food| OrderDetail.specific_date(daily_food) }
     details_arr.flatten!
     order_ids = details_arr.pluck(:order_id).uniq

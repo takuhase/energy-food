@@ -1,18 +1,12 @@
 class OrdersController < ApplicationController
   include Common
   before_action :authenticate_user!
-  before_action :correct_user, only: [:edit]
+  before_action :correct_order, only: [:show, :edit, :update, :destroy]
 
   def show
-    @order = Order.find(params[:id])
-
-    order_details = OrderDetail.where(order_id: params[:id])
-    daily_foods = order_details.map do |details|
-      details.daily_food
-    end
-    @orders = daily_foods.map do |daily_food|
-      daily_food.food
-    end
+    # @order = Order.find(params[:id])
+    daily_foods = Order.get_daily_foods(params[:id])
+    @orders = daily_foods.map { |daily_food| daily_food.food }
 
     respond_to do |format|
       format.html do
@@ -30,22 +24,17 @@ class OrdersController < ApplicationController
     Order.transaction do
       @order.save!
       OrderDetail.transaction do
-        ids.each do |id|
-          OrderDetail.create!(order_id: @order.id, daily_food_id: id.to_i)
-        end
+        ids.each { |id| OrderDetail.create!(order_id: @order.id, daily_food_id: id.to_i) }
       end
     end
     redirect_to current_user, notice: '注文を受け付けました。'
   end
 
   def edit
-    order_details = OrderDetail.where(order_id: params[:id])
-    daily_foods = return_daily_foods(order_details)
+    daily_foods = Order.get_daily_foods(params[:id])
     date = daily_foods.first.date
 
-    @food_arr = daily_foods.map do |food|
-      food.id
-    end
+    @food_arr = daily_foods.map { |food| food.id }
     specific_date_food_relations = DailyFood.show_menu_list(date)
     categorize(specific_date_food_relations)
   end
@@ -58,9 +47,7 @@ class OrdersController < ApplicationController
     Order.transaction do
       order.order_details.destroy_all
       OrderDetail.transaction do
-        ids.each do |id|
-          OrderDetail.create!(order_id: order.id, daily_food_id: id.to_i)
-        end
+        ids.each { |id| OrderDetail.create!(order_id: order.id, daily_food_id: id.to_i) }
       end
       order.touch
     end
@@ -75,14 +62,8 @@ class OrdersController < ApplicationController
 
   private
 
-  def correct_user
-    @user = Order.find(params[:id]).user
-    redirect_to(root_url, alert: '他ユーザーの情報は閲覧できません') unless current_user == @user
-  end
-
-  def return_daily_foods(order_details)
-    order_details.map do |order_detail|
-      DailyFood.find(order_detail.daily_food_id)
-    end
+  def correct_order
+    user = Order.find(params[:id]).user
+    redirect_to(root_url, alert: '他ユーザーの情報は閲覧できません') unless current_user == user
   end
 end
