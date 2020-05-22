@@ -1,5 +1,7 @@
 class ShopClerks::HomesController < ApplicationController
+  before_action :authenticate_shop_clerk!
   PER = 10
+
   def index
     daily_foods = DailyFood.show_menu_list(Date.tomorrow)
     details_arr = daily_foods.map { |daily_food| OrderDetail.specific_date(daily_food) }

@@ -1,4 +1,6 @@
 class ShopClerks::DailyFoodsController < ApplicationController
+  before_action :authenticate_shop_clerk!
+
   PER = 10
   def index
     @daily_foods = DailyFood.descending_order.paginate(page: params[:page], per_page: PER)

@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   include Common
   before_action :authenticate_user!
-  before_action :correct_user, only: [:edit]
+  before_action :correct_order, only: [:show, :edit, :update, :destroy]
 
   def show
     # @order = Order.find(params[:id])
@@ -62,8 +62,8 @@ class OrdersController < ApplicationController
 
   private
 
-  def correct_user
-    @user = Order.find(params[:id]).user
-    redirect_to(root_url, alert: '他ユーザーの情報は閲覧できません') unless current_user == @user
+  def correct_order
+    user = Order.find(params[:id]).user
+    redirect_to(root_url, alert: '他ユーザーの情報は閲覧できません') unless current_user == user
   end
 end
