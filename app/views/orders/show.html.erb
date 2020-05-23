@@ -1,0 +1,24 @@
+<%= render 'shared/flash_messages' %>
+<section class="py-5 bg-light">
+  <div class="container">
+    <%= link_to '注文履歴 一覧', current_user, class: 'btn btn-success float-right' %>
+    <h3>注文詳細</h3>
+    <table class="table table-hover">
+      <tr class="bg-light">
+        <th>中国語名</th><th>英語名</th><th>価格(円)</th>
+      </tr>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.chinese_name %></td>
+          <td><%= food.english_name %></td>
+          <td><%= food.alacarte_price %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>合計<%= @total_price %></td>
+      </tr>
+    </table>
+  </div>
+</section>

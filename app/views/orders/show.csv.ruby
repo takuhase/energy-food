@@ -12,13 +12,9 @@ export_file = CSV.generate do |csv|
   csv << cols.keys
 
   # body
-  @orders.each do |order|
-    csv << cols.map { |k, col| col.call(order) }
+  @foods.each do |food|
+    csv << cols.map { |k, col| col.call(food) }
   end
 end
 
-total_price = @orders.sum do |order|
-  order.alacarte_price
-end
-
-export_file << "合計,,, #{total_price}円"
+export_file << "合計,,, #{@total_price}円"

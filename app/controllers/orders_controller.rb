@@ -6,7 +6,11 @@ class OrdersController < ApplicationController
   def show
     # @order = Order.find(params[:id])
     daily_foods = Order.get_daily_foods(params[:id])
-    @orders = daily_foods.map { |daily_food| daily_food.food }
+    @foods = daily_foods.map { |daily_food| daily_food.food }
+
+    @total_price = @foods.sum do |food|
+      food.alacarte_price
+    end
 
     respond_to do |format|
       format.html do
@@ -27,7 +31,7 @@ class OrdersController < ApplicationController
         ids.each { |id| OrderDetail.create!(order_id: @order.id, daily_food_id: id.to_i) }
       end
     end
-    redirect_to current_user, notice: '注文を受け付けました。'
+    redirect_to order_path(@order), notice: '以下の注文を受け付けました。'
   end
 
   def edit
