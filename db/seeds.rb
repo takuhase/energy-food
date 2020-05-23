@@ -24,8 +24,8 @@ end
 
 # Master data for Nutrient
 [
-  ['Meat', 3, 5],
-  ['Vege', 2, 3]
+  ['Meat', 3, 120],
+  ['Vege', 2, 60]
 ].each do |name, addon_price, alacarte_price|
   Nutrient.create!( { name: name, addon_price: addon_price, alacarte_price: alacarte_price } )
 end
@@ -130,15 +130,15 @@ end
 78.times do |n|
   food_id = n+1
   if food_id <= 16
-    date = '2020-05-22'
-  elsif food_id <= 32
     date = '2020-05-23'
-  elsif food_id <= 48
+  elsif food_id <= 32
     date = '2020-05-24'
-  elsif food_id <= 64
+  elsif food_id <= 48
     date = '2020-05-25'
-  else
+  elsif food_id <= 64
     date = '2020-05-26'
+  else
+    date = '2020-05-27'
   end
   DailyFood.create!(date: date,
                     food_id: food_id)

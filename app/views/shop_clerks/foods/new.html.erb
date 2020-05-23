@@ -1,4 +1,3 @@
-<%= render 'shared/flash_messages' %>
 <div class="container-food-add">
   <h3>料理追加</h3>
   <%= form_for(@food, url:shop_clerks_foods_path) do |f| %>
@@ -18,4 +17,3 @@
       <%= f.submit "追加", class: 'btn btn-success btn-block' %>
     </div>
   <% end %>
-</div>

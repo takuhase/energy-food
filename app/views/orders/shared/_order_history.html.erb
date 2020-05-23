@@ -1,9 +1,5 @@
-<section class="py-5 bg-light">
-  <div class="container">
-    <div class="order-history">
-      <h1 class="main-topic">注文履歴</h1>
-      <%= render 'orders/shared/order_collection', { orders: @orders, ordered_foods_history: @ordered_foods_history } %>
-      <%= will_paginate @orders, previous_label: '&lt 前', next_label: '次 &gt' %>
-    </div>
-  </div>
-</section>
+<div class="order-history">
+  <h1 class="main-topic">注文履歴</h1>
+  <%= render 'orders/shared/order_collection', { orders: @orders, ordered_foods_history: @ordered_foods_history } %>
+  <%= will_paginate @orders, previous_label: '&lt 前', next_label: '次 &gt' %>
+</div>
