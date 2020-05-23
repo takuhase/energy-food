@@ -9,41 +9,37 @@
     <a class="col-sm-4 col-md-2" href="#SpecialItems">Special Items</a>
   </div>
 </div>
-<section class="py-5 bg-light">
-  <div class="container">
-    <%= form_tag(orders_path, method: :post) do %>
-      <% @categorized.each do |category, date_food_relations| %>
-        <div class="food-category-<%= category %>">
-          <h3 class="food-category"><a id="<%= category %>"><%= category %></a></h3>
-          <div class="row">
-            <% date_food_relations.each do |date_food_relation|%>
-              <div class="col-md-4">
-                <label class="mb-5 card text-center select-menu-<%= date_food_relation.id %>">
-                  <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}" %>
-                  <span>
-                    <h6>
-                      <%= date_food_relation.chinese_name %>
-                      <% if date_food_relation.food.likes_count > 0 %>
-                        <i class="fas fa-star star-orange"><%= date_food_relation.food.likes_count %></i>
-                      <% end %>
-                    </h6>
-                      <h6><%= date_food_relation.english_name %></h6>
-                      <i class="alacarte_price"><%= date_food_relation.alacarte_price %></i>円
-                  </span>
-                </label>
-              </div>
-            <% end %>
+<%= form_tag(orders_path, method: :post) do %>
+  <% @categorized.each do |category, date_food_relations| %>
+    <div class="food-category-<%= category %>">
+      <h3 class="food-category"><a id="<%= category %>"><%= category %></a></h3>
+      <div class="row">
+        <% date_food_relations.each do |date_food_relation|%>
+          <div class="col-md-4">
+            <label class="mb-5 card text-center select-menu-<%= date_food_relation.id %>">
+              <%= check_box_tag "daily_food_ids[]", "#{date_food_relation.id}" %>
+              <span>
+                <h6>
+                  <%= date_food_relation.chinese_name %>
+                  <% if date_food_relation.food.likes_count > 0 %>
+                    <i class="fas fa-star star-orange"><%= date_food_relation.food.likes_count %></i>
+                  <% end %>
+                </h6>
+                  <h6><%= date_food_relation.english_name %></h6>
+                  <i class="alacarte_price"><%= date_food_relation.alacarte_price %></i>円
+              </span>
+            </label>
           </div>
-        </div>
-      <% end %>
-      <div class="order-summary card text-center">
-        <div class="display-total-price">
-          <h2>合計<span class="mgr-10" id="calculate-total-price">0</span>円</h2>
-        </div>
-        <div class="submit-button py-3">
-          <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
-        </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
+  <div class="order-summary card text-center">
+    <div class="display-total-price">
+      <h2>合計<span class="mgr-10" id="calculate-total-price">0</span>円</h2>
+    </div>
+    <div class="submit-button py-3">
+      <%= submit_tag "注文を送信", class: 'btn btn-info btn-block' %>
+    </div>
   </div>
-</section>
+<% end %>

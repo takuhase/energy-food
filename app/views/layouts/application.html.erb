@@ -13,7 +13,16 @@
 
   <body>
     <%= render 'shared/header' %>
-    <%= yield %>
+    <%= render 'shared/flash_messages' %>
+    <% if user_signed_in? || shop_clerk_signed_in? || !current_page?(root_path) %>
+      <section class="py-5 bg-light">
+        <div class="container">
+          <%= yield %>
+        </div>
+      </section>
+    <% elsif %>
+      <%= yield %>
+    <% end %>
     <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
