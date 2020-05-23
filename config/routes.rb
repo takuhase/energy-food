@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   root 'homes#index'
   post '/homes/guest_sign_in', to: 'homes#new_guest'
+  post '/homes/guest_clerk_sign_in', to: 'homes#new_guest_clerk'
 end

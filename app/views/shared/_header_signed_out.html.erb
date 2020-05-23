@@ -4,8 +4,12 @@
 <li class="nav-item">
   <%= link_to "店舗スタッフ", new_shop_clerk_session_path, class: 'nav-link' %>
 </li>
-<li class="nav-item">
-  <strong>
-    <%= link_to 'ポートフォリオ閲覧用', homes_guest_sign_in_path, method: :post, class: 'nav-link strong' %>
-  </strong>
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkGUest" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ポートフォリオの閲覧はこちら
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkGuest">
+    <%= link_to 'ユーザとして簡単ログイン', homes_guest_sign_in_path, method: :post, class: 'dropdown-item' %>
+    <%= link_to '店員として簡単ログイン', homes_guest_clerk_sign_in_path, method: :post, class: 'dropdown-item' %>
+  </div>
 </li>
