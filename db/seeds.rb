@@ -1,7 +1,11 @@
-#Guest User
+#Guest User - User
 User.create!(name: 'Guest User',
              email: 'guest@example.com',
              password: SecureRandom.urlsafe_base64)
+
+#Guest User - ShopClerk
+ShopClerk.create!(email: 'guest-shop-clerk@example.com',
+                  password: SecureRandom.urlsafe_base64)
 
 20.times do |n|
   name  = Faker::JapaneseMedia::DragonBall.character

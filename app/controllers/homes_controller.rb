@@ -14,4 +14,10 @@ class HomesController < ApplicationController
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
+
+  def new_guest_clerk
+    shop_clerk = ShopClerk.guest_login
+    sign_in shop_clerk
+    redirect_to shop_clerks_root_path, notice: 'ゲスト店員としてログインしました。'
+  end
 end
