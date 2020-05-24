@@ -1,5 +1,5 @@
 <div class="container-login text-center card">
-  <h3>店舗スタッフログイン</h3>
+  <h1 class="h3 mb-3 font-weight-normal">店舗スタッフログイン</h1>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
       <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
@@ -8,16 +8,8 @@
       <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', placeholder: 'パスワード',
                             required: true, minlength: @minimum_password_length, maxlength: '30' %>
     </div>
-    <% if devise_mapping.rememberable? %>
-      <div class="form-group form-check">
-        <%= f.check_box :remember_me, class: 'form-check-input' %>
-        <%= f.label :remember_me, class: 'form-check-label' do %>
-          <%= resource.class.human_attribute_name('remember_me') %>
-        <% end %>
-      </div>
-    <% end %>
     <div class="form-group">
-      <%= f.submit "Log in", class: 'btn btn-success btn-block' %>
+      <%= f.submit "ログイン", class: 'btn btn-success btn-block' %>
     </div>
   <% end %>
 </div>
