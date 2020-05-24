@@ -28,10 +28,14 @@ RSpec.feature "Orders", type: :feature do
       click_button "注文を送信"
     end.to change(Order, :count).by(1)
 
-    # Update order
-    visit user_path(test_user)
+    expect(current_path).to eq "/orders/#{Order.last.id}"
+    expect(page).to have_content "以下の注文を受け付けました。"
+    expect(page).to have_content "注文詳細"
+    expect(page).to have_content "蒸西兰花"
+    click_link "注文履歴 一覧"
     expect(current_path).to eq "/users/#{test_user.id}"
 
+    # Update order
     within(".order-history") do
       expect(page).not_to have_content "蜜汁鸡丁"
       expect(page).not_to have_content "姜蓉蒸鸡"
