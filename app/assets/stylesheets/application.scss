@@ -171,14 +171,17 @@ label input[type="checkbox"]:checked + span::after {
 }
 
 header.masthead {
-	min-height: 500px;
-	background: #f7f7f7 url(lp2.jpg) center top/cover no-repeat;
+  min-height: 550px;
+	background: #f7f7f7 url(lp_1.jpg) center top/cover no-repeat;
   background-repeat: no-repeat;
   background-image: image-url('lp_1.jpg');
 
+  .layor-adjust {
+    top: 130px;
+  }
+
   .section-body {
-    position: absolute;
-    top: 250px;
+    text-align: center;
     left: 100px;
     h1 {
       letter-spacing: 1px;
@@ -189,10 +192,8 @@ header.masthead {
       letter-spacing: 1px;
     }
   }
-
   .login-box {
-    position: absolute;
-    top: 150px;
-    right: 250px;
+    @extend .container-fluid;
+    max-width: 300px;
   }
 }

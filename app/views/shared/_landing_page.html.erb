@@ -1,12 +1,26 @@
 <body id="page-top">
   <header class="masthead">
-    <div class ="section-body">
-      <h1 class="text-white font-weight-bold">EnergyFood</h1>
-      <p>Wonderful meal experience here.</p>
-      <%= link_to "LOGIN NOW", new_user_session_path, class: 'btn btn-lg btn-success' %>
-    </div>
-    <div class="login-box float-right">
-      <%= render('login') %>
-    </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 layor-adjust mb-5">
+            <div class="section-body pt-4">
+              <h1 class="text-white font-weight-bold">EnergyFood</h1>
+              <p>Wonderful meal experience here.</p>
+              <%= link_to "LOGIN NOW", new_user_session_path, class: 'btn btn-lg btn-success' %>
+            </div>
+          </div>
+          <div class="col-md-5 d-none d-md-block layor-adjust">
+            <div class="login-box float-right">
+              <%= render('signin') %>
+            </div>
+          </div>
+        </div>
+      </div>
   </header>
+  <section class="bg-light">
+    <div class="container">
+      <!-- <h3 class="py-5">test</test> -->
+      <%= render('introduction') %>
+    </div>
+  </section>
 </body>
