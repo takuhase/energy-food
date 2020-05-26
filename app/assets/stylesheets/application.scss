@@ -12,13 +12,15 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
+  color: #777;
+  font-family: 'arial black';
 }
 
 .main-topic {
   text-align: center;
 }
 
-h2, h3 {
+h3 {
   font-size: 1.2em;
   letter-spacing: -1px;
   margin-bottom: 30px;
@@ -54,10 +56,19 @@ h2, h3 {
   right: 0;
 }
 
+.order-summary h2{
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #777;
+  font-family: 'arial black';
+}
+
 .mgr-10 {
   margin-right: 10px;
 }
-// effect on checkbox
+
+
+// effect on checkbox from here
 label input[type="checkbox"] {
     display: none;
 }
@@ -116,6 +127,7 @@ label input[type="checkbox"]:checked + span::before {
 label input[type="checkbox"]:checked + span::after {
     opacity: 1;
 }
+// effect on checkbox ends here
 
 // order-history.html.erb
 .order-head {
@@ -170,15 +182,19 @@ label input[type="checkbox"]:checked + span::after {
   @extend .alert-danger;
 }
 
+// Landing page
 header.masthead {
-	min-height: 500px;
-	background: #f7f7f7 url(lp2.jpg) center top/cover no-repeat;
+  min-height: 550px;
+	background: #f7f7f7 url(lp_1.jpg) center top/cover no-repeat;
   background-repeat: no-repeat;
   background-image: image-url('lp_1.jpg');
 
+  .layor-adjust {
+    top: 130px;
+  }
+
   .section-body {
-    position: absolute;
-    top: 250px;
+    text-align: center;
     left: 100px;
     h1 {
       letter-spacing: 1px;
@@ -189,4 +205,13 @@ header.masthead {
       letter-spacing: 1px;
     }
   }
+  .login-box {
+    @extend .container-fluid;
+    max-width: 300px;
+  }
+}
+
+// introduciton
+.intro-header {
+  font-size: 2.571em;
 }

@@ -134,15 +134,15 @@ end
 78.times do |n|
   food_id = n+1
   if food_id <= 16
-    date = '2020-05-23'
-  elsif food_id <= 32
-    date = '2020-05-24'
-  elsif food_id <= 48
-    date = '2020-05-25'
-  elsif food_id <= 64
     date = '2020-05-26'
-  else
+  elsif food_id <= 32
     date = '2020-05-27'
+  elsif food_id <= 48
+    date = '2020-05-28'
+  elsif food_id <= 64
+    date = '2020-05-29'
+  else
+    date = '2020-05-30'
   end
   DailyFood.create!(date: date,
                     food_id: food_id)
@@ -183,4 +183,4 @@ end
   Like.create!(user_id: user_id,
                food_id: food_id)
 end
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')

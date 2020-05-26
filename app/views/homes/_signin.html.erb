@@ -1,0 +1,23 @@
+<div class="container-login text-center card">
+  <h1 class="h3 mb-3 font-weight-normal"><%= t('.sign_up') %></h1>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= bootstrap_devise_error_messages! %>
+    <div class="form-group">
+      <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: '名前' %>
+    </div>
+    <div class="form-group">
+      <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: 'メールアドレス' %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', placeholder: 'パスワード',
+                            required: true, minlength: @minimum_password_length, maxlength: '30' %>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', placeholder: 'パスワード(確認用)',
+                            required: true, minlength: @minimum_password_length, maxlength: '30' %>
+    </div>
+    <div class="form-group">
+      <%= f.submit '新規登録', class: 'btn btn-success btn-block' %>
+    </div>
+  <% end %>
+</div>

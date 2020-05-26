@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   before_action :correct_order, only: [:show, :edit, :update, :destroy]
 
   def show
-    # @order = Order.find(params[:id])
     daily_foods = Order.get_daily_foods(params[:id])
     @foods = daily_foods.map { |daily_food| daily_food.food }
 

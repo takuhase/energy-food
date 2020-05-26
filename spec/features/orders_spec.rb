@@ -14,7 +14,7 @@ RSpec.feature "Orders", type: :feature do
 
     # Create order
     expect do
-      expect(page).to have_content "明日のメニュー"
+      expect(page).to have_content "Tomorrow's menu"
       within(".select-menu-#{daily_food_1.id}") do
         expect(page).to have_content "蜜汁鸡丁"
       end
@@ -25,7 +25,7 @@ RSpec.feature "Orders", type: :feature do
         expect(page).to have_content "蒸西兰花"
         check "daily_food_ids[]"
       end
-      click_button "注文を送信"
+      click_button "注文を確定"
     end.to change(Order, :count).by(1)
 
     expect(current_path).to eq "/orders/#{Order.last.id}"
@@ -60,7 +60,7 @@ RSpec.feature "Orders", type: :feature do
       expect(page).to have_content "蒸西兰花"
       uncheck "daily_food_ids[]"
     end
-    click_button "注文を変更"
+    click_button "注文を確定"
 
     # Delete order
     expect do

@@ -7,14 +7,14 @@ RSpec.feature "SignIns", type: :feature do
 
   scenario "User can sign in successfully" do
     visit new_user_session_path
-    click_link "ログイン"
+    click_button "ログイン"
     expect(page).to have_content "ログイン"
     fill_in "session-email", with: user.email
     fill_in "session-password", with: user.password
     click_button "ログイン"
     expect(page).to have_current_path "/"
     expect(page).to have_content "ログインしました。"
-    expect(page).to have_content "明日のメニュー"
+    expect(page).to have_content "Tomorrow's menu"
   end
 
   scenario "Store Clerk can sign in successfully" do
