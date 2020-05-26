@@ -14,7 +14,7 @@ RSpec.feature "SignIns", type: :feature do
     click_button "ログイン"
     expect(page).to have_current_path "/"
     expect(page).to have_content "ログインしました。"
-    expect(page).to have_content "明日のメニュー"
+    expect(page).to have_content "Tomorrow's menu"
   end
 
   scenario "Store Clerk can sign in successfully" do

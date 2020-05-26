@@ -12,6 +12,8 @@ h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
+  color: #777;
+  font-family: 'arial black';
 }
 
 .main-topic {
@@ -54,10 +56,19 @@ h3 {
   right: 0;
 }
 
+.order-summary h2{
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #777;
+  font-family: 'arial black';
+}
+
 .mgr-10 {
   margin-right: 10px;
 }
-// effect on checkbox
+
+
+// effect on checkbox from here
 label input[type="checkbox"] {
     display: none;
 }
@@ -116,6 +127,7 @@ label input[type="checkbox"]:checked + span::before {
 label input[type="checkbox"]:checked + span::after {
     opacity: 1;
 }
+// effect on checkbox ends here
 
 // order-history.html.erb
 .order-head {
