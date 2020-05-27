@@ -5,11 +5,8 @@ class OrdersController < ApplicationController
 
   def show
     daily_foods = Order.get_daily_foods(params[:id])
-    @foods = daily_foods.map { |daily_food| daily_food.food }
-
-    @total_price = @foods.sum do |food|
-      food.alacarte_price
-    end
+    @foods = daily_foods.map(&:food)
+    @total_price = @foods.sum(&:alacarte_price)
 
     respond_to do |format|
       format.html do
@@ -36,8 +33,7 @@ class OrdersController < ApplicationController
   def edit
     daily_foods = Order.get_daily_foods(params[:id])
     date = daily_foods.first.date
-
-    @food_arr = daily_foods.map { |food| food.id }
+    @food_arr = daily_foods.map(&:id)
     specific_date_food_relations = DailyFood.show_menu_list(date)
     categorize(specific_date_food_relations)
   end
