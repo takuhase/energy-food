@@ -13,7 +13,8 @@ module EnergyFood
     # Japanese version
     config.i18n.default_locale = :ja
     # JST
-    config.time_zone = 'Asia/Tokyo'
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
 
     config.generators do |g|
       g.test_framework :rspec,
