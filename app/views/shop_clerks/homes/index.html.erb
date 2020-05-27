@@ -1,3 +1,4 @@
+<% provide(:title, '当日注文状況') %>
 <div class="order-history">
   <h3>本日の注文一覧</h3>
   <%= render 'shop_clerks/shared/order_collection', { orders: @orders, ordered_foods_history: @ordered_foods_history } %>
