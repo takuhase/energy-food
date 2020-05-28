@@ -1,6 +1,10 @@
 <h1 class="main-topic">Tomorrow's menu</h1>
-<%= render 'homes/shared/scroll_menu' %>
-<%= form_tag(orders_path, method: :post) do %>
-  <%= render 'shared/menu_collection' %>
-  <%= render 'shared/submit_button' %>
+<% if @categorized["Chicken"].present? %>
+  <%= render 'homes/shared/scroll_menu' %>
+  <%= form_tag(orders_path, method: :post) do %>
+    <%= render 'shared/menu_collection' %>
+    <%= render 'shared/submit_button' %>
+  <% end %>
+<% else%>
+  <h6>明日はお休みです。</h6>
 <% end %>

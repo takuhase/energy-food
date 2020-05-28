@@ -3,7 +3,7 @@ class HomesController < ApplicationController
 
   def index
     if user_signed_in?
-      tomorrow_date_food_relations = DailyFood.show_menu_list(Date.tomorrow)
+      tomorrow_date_food_relations = DailyFood.show_menu_list(Time.current.tomorrow)
       categorize(tomorrow_date_food_relations)
       @order = Order.new
     end
