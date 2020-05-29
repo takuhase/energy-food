@@ -15,7 +15,7 @@ RSpec.feature "SignOuts", type: :feature do
 
   scenario "Shop Clerk can sign out from his own page" do
     login_as shop_clerk, scope: :shop_clerk
-    visit root_path
+    visit shop_clerks_root_path
     click_link "ログアウト"
     expect(page).to have_content "ログアウトしました。"
     expect(current_path).to eq "/"
