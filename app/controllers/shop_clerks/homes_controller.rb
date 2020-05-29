@@ -3,7 +3,7 @@ class ShopClerks::HomesController < ApplicationController
   PER = 10
 
   def index
-    daily_foods = DailyFood.show_menu_list(Date.tomorrow)
+    daily_foods = DailyFood.show_menu_list(Time.current)
     details_arr = daily_foods.flat_map { |daily_food| OrderDetail.specific_date(daily_food) }
     order_ids = details_arr.pluck(:order_id).uniq
     @orders = order_ids.map { |order_id| Order.find(order_id) }

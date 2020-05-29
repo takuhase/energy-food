@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-<% provide(:title, 'あしたのメニュー') %>
+  <% provide(:title, 'あしたのメニュー') %>
   <%= render 'homes/shared/tomorrow_menu' %>
 <% else %>
   <%= render 'shared/landing_page' %>

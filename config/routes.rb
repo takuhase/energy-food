@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root 'homes#index'
     resources :foods
     resources :daily_foods
+    resources :orders, only: [:show]
   end
 
   devise_for :shop_clerks, controllers: {
