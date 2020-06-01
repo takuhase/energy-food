@@ -1,9 +1,0 @@
-<% provide(:title, '当日注文状況') %>
-<div class="order-history">
-  <h3>本日の注文一覧</h3>
-  <% if @ordered_foods_history.present? %>
-    <%= render 'shop_clerks/shared/order_collection', { orders: @orders, ordered_foods_history: @ordered_foods_history } %>
-  <% else %>
-    <h6>本日の注文は0件です。</h6>
-  <% end %>
-</div>
