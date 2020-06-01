@@ -2,9 +2,10 @@
 
 とある小さな中華料理店の日替わりランチを、Web上で注文するサービスです。
 
-# Demo
-Depending on input, the output is displayed as the result like the image below.
-![result](https://github.com/takuhase/energy-food/blob/media/screenshot_1.png)
+# 画面キャプチャ
+![result](https://github.com/takuhase/energy-food/blob/media/screenshot_small_1.png)
+![result](https://github.com/takuhase/energy-food/blob/media/screenshot_small_2.png)
+![result](https://github.com/takuhase/energy-food/blob/media/screenshot_small_3.png)
 
 # 技術一覧
 ### 使用言語/フレームワーク
@@ -39,11 +40,11 @@ Depending on input, the output is displayed as the result like the image below.
 # 機能一覧
 ### ユーザー向け機能
 - 料理注文
-- 注文の変更/削除(前日中のみ可)
+- 注文の変更/削除(前日の23:59まで可)
 - 注文履歴表示
-- 料理のお気に入り
+- 料理のお気に入り登録
 - 注文明細のCSV出力
-- 新規登録/ログイン
+- 新規登録/ログイン/ログアウト
 - ユーザー情報の編集
 
 ### 店員向け機能
@@ -51,11 +52,11 @@ Depending on input, the output is displayed as the result like the image below.
 - 注文明細のCSV出力
 - 料理一覧表示/新規追加
 - 日替わりメニュー(料理 + 日付の組み合わせ)の一覧表示/新規追加
-- ログイン
+- ログイン/ログアウト
 
 ### システム管理者向け機能
 - ユーザー/店員のCRUD操作
-- ログイン
+- ログイン/ログアウト
 
 # 使い方
 ###### 前提条件
