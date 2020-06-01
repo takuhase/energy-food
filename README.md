@@ -1,9 +1,10 @@
 # EnergyFood
 
 とある小さな中華料理店の日替わりランチを、Web上で注文するサービスです。
-URL
 
 # Demo
+Depending on input, the output is displayed as the result like the image below.
+![result](https://github.com/takuhase/energy-food/blob/media/screenshot_1.png)
 
 # 技術一覧
 ### 使用言語/フレームワーク
