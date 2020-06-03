@@ -131,18 +131,53 @@ end
 end
 
 # Master data for DailyFood
+DATE = Date.new(2020, 6, 2)
 78.times do |n|
-  food_id = n+1
+  food_id = n + 1
   if food_id <= 16
-    date = '2020-05-28'
+    date = DATE
   elsif food_id <= 32
-    date = '2020-05-29'
+    date = DATE + 1
   elsif food_id <= 48
-    date = '2020-05-30'
+    date = DATE + 2
   elsif food_id <= 64
-    date = '2020-05-31'
+    date = DATE + 3
   else
-    date = '2020-06-01'
+    date = DATE + 4
+  end
+  DailyFood.create!(date: date,
+                    food_id: food_id)
+end
+
+78.times do |n|
+  food_id = n + 1
+  if food_id <= 16
+    date = DATE + 5
+  elsif food_id <= 32
+    date = DATE + 6
+  elsif food_id <= 48
+    date = DATE + 7
+  elsif food_id <= 64
+    date = DATE + 8
+  else
+    date = DATE + 9
+  end
+  DailyFood.create!(date: date,
+                    food_id: food_id)
+end
+
+78.times do |n|
+  food_id = n + 1
+  if food_id <= 16
+    date = DATE + 10
+  elsif food_id <= 32
+    date = DATE + 11
+  elsif food_id <= 48
+    date = DATE + 12
+  elsif food_id <= 64
+    date = DATE + 13
+  else
+    date = DATE + 14
   end
   DailyFood.create!(date: date,
                     food_id: food_id)
