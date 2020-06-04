@@ -2,6 +2,9 @@
 
 とある小さな中華料理店の日替わりランチを、Web上で注文するサービスです。
 
+[AWS](http://energy-food.hasetaku.tokyo/)<br>
+[Heroku](https://energy-food.herokuapp.com/)
+
 # 画面キャプチャ
 ![result](https://github.com/takuhase/energy-food/blob/media/screenshot_small_1.png)
 ![result](https://github.com/takuhase/energy-food/blob/media/screenshot_small_2.png)
