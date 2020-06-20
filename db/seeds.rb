@@ -131,7 +131,7 @@ end
 end
 
 # Master data for DailyFood
-DATE = Date.new(2020, 6, 2)
+DATE = Date.new(2020, 6, 19)
 78.times do |n|
   food_id = n + 1
   if food_id <= 16
